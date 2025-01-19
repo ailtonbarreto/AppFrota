@@ -1,0 +1,22 @@
+.st-emotion-cache-1kyxreq{
+    align-items: center;
+    justify-content: center;
+}
+
+section{
+    background-color: #000;
+    /* background-color: #98b1c9; */
+
+}
+
+h3{
+    text-align: center;
+}
+
+p{
+    font-weight: bold;
+}
+
+.stSidebar{
+    top: 3vw;
+}
