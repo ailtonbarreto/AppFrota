@@ -58,7 +58,7 @@ with tab2:
 with tab3:
     st.subheader("Link Para Preencher",anchor=False)
     st.image("img/qr.png")
-    components.iframe(src=frame, width=800, height=1100)
+    components.iframe(src=frame, width=800, height=1600)
 
 
 # ---------------------------------------------------------------------------------------------
