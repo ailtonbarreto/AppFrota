@@ -341,7 +341,6 @@ borda = """
             border-radius: 15px;
             padding: 10px;
             text-align: center;
-            color: #3885CC;
             opacity: 100%;
             box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); 
             }
