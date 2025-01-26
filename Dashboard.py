@@ -41,7 +41,7 @@ df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
 df = df.rename(columns={"Tipo:": "Tipo"})
 df = df.rename(columns={"Veículo:": "Veículo"})
 
-frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyyDxbdLpevKT3lP0-5afw/viewform'
+frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyyDxbdLpevKT3lP0-5afw/viewform?embedded=true'
 
 # ---------------------------------------------------------------------------------------------
 # layout
