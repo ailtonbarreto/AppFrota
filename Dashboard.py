@@ -430,3 +430,18 @@ style6 = """
             """
 
 st.markdown(style6, unsafe_allow_html=True) 
+
+# ----------------------------------------------------------------------------------
+
+style7 = """
+            <style>
+            [Data-testid="stElementContainer"]
+            {
+            text-align: center;
+            }
+            </style>
+            """
+
+st.markdown(style7, unsafe_allow_html=True) 
+
+
