@@ -8,7 +8,7 @@ import pytz
 # ---------------------------------------------------------------------------------------------
 # layout
 
-st.set_page_config(page_title="Controle de Frota",layout="wide",initial_sidebar_state="collapsed",page_icon="🚛")
+st.set_page_config(page_title="Gestão de Frota",layout="wide",initial_sidebar_state="collapsed",page_icon="🚛")
 
 
 with open("style.css") as f:
@@ -16,16 +16,13 @@ with open("style.css") as f:
 
 st.image('img/header.png',width=1000)
 
+
 # ---------------------------------------------------------------------------------------------
 # Dataframe principal
 @st.cache_data
 def load_viagens():
-    gc = gs.service_account("credencial.json")
-    url = 'https://docs.google.com/spreadsheets/d/11tgA-emVoqMda7Y2zBKNStSbBVHqK887G6cx57AKH_c/edit?usp=sharing'
-    sh = gc.open_by_url(url)
-    ws = sh.get_worksheet(0)
-    planilha = ws.get_all_values()
-    df = pd.DataFrame(planilha[1:], columns=planilha[0])
+    url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLYIhif_-IpAqFzG2uZKZ2Rifj0xmdek42-wuj2mNuGWYENnZLY1gRSzh9NnUYh0f1_9xpBoMttk5a/pub?gid=2121011744&single=true&output=csv'
+    df = pd.read_csv(url)
     return df
 
 
@@ -40,13 +37,22 @@ df = df.drop(columns="Carimbo de data/hora")
 df["Ano"] = df["Data"].dt.year
 df["Mês"] = df["Data"].dt.month
 df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
+df = df.rename(columns={"Tipo:": "Tipo"})
+df = df.rename(columns={"Veículo:": "Veículo"})
 
 
 
 # ---------------------------------------------------------------------------------------------
 # layout
 
-coltitile, = st.columns(1)
+tab1, tab2 = st.tabs(["Disponibilidade","Registros"])
+
+
+with tab1:
+    st.subheader("Disponibilidade da Frota", anchor=False)
+    
+with tab2:
+    st.subheader("Registros", anchor=False)
 
 
 
@@ -60,416 +66,246 @@ viagens = df
 
 df_motoristas = df["Motorista:"].unique()
 
-df_Veiculos = df["Veículo:"].unique()
+df_Veiculos = df["Veículo"].unique()
 
 
 # # ---------------------------------------------------------------------------------------------
 
-# df_tipo = df.groupby("Veiculo")["Tipo"].value_counts().reset_index()
+df_tipo = df.groupby("Veículo")["Tipo"].value_counts().reset_index()
 
-# df_tipo = df_tipo.groupby("Veiculo")["count"].sum().reset_index()
+df_tipo = df_tipo.groupby("Veículo")["count"].sum().reset_index()
 
-# df_tipo["disp"] = df_tipo["count"].apply(lambda x: x % 2)
+df_tipo["disp"] = df_tipo["count"].apply(lambda x: x % 2)
 
-# rua = (df_tipo['disp'] == 1).sum()
+rua = (df_tipo['disp'] == 1).sum()
 
-# df_status = df_tipo
+df_status = df_tipo
 
-# df_status["status"] = df_status["disp"].replace(1,"Rua").replace(0,"Pátio")
+df_status["status"] = df_status["disp"].replace(1,"Rua").replace(0,"Pátio")
 
-# df_status = df_status.drop(columns=["count","disp"])
+df_status = df_status.drop(columns=["count","disp"])
 
-# max_date = df['Data'].max()
-
-# # max_date.strftime('%Y-%m-%d')
+max_date = df['Data'].max()
 
 
+# ---------------------------------------------------------------------------------------------
+# cards
+
+df_qtd_viagens = df.query('Tipo == "Saída"')
+
+df_qtd_viagens = df_qtd_viagens["Tipo"].count()
 
 
-# # ---------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
 
-# # cards
+qtd_motoristas = df_motoristas.shape[0]
 
-# df_qtd_viagens = df.query('Tipo == "Saída"')
+qtd_Veiculos = df_Veiculos.shape[0]
 
-# df_qtd_viagens = df_qtd_viagens["Tipo"].count()
+patio = qtd_Veiculos - rua
 
+# -----------------------------------------------------------------------------------------------------------
 
-# # -----------------------------------------------------------------------------------------------------------
+carros_disp = df.query('Tipo == "Saída"')
 
+carros_disp = carros_disp["Veículo"].unique()
 
-# df_km_rodados = df.query('Tipo == "Entrada"')
-
-# df_km_rodados = df_km_rodados["Km"].sum()
-
-# # -----------------------------------------------------------------------------------------------------------
-
-# qtd_motoristas = df_motoristas.shape[0]
-
-# qtd_Veiculos = df_Veiculos.shape[0]
-
-# patio = qtd_Veiculos - rua
-
-# # -----------------------------------------------------------------------------------------------------------
-
-# carros_disp = df.query('Tipo == "Saída"')
-
-# carros_disp = carros_disp["Veiculo"].unique()
-
-# carros_disp = carros_disp.shape[0]
+carros_disp = carros_disp.shape[0]
 
 
-# # -----------------------------------------------------------------------------------------------------------
-# # VIAGENS
+# -----------------------------------------------------------------------------------------------------------
+# VIAGENS
 
-# with tab1:
+with tab1:
 
-#     card1, card2, card3, card4, card5 = st.columns(5)
+    card1, card2, card3, card4, card5 = st.columns(5)
 
+
+    # carro A status
+  
     
 
-#     # carro 2 status
-#     with tab1:
+    carda, cardb, cardc, cardd, carde = st.columns(5)
 
-#         st.subheader("Disponibilidade da Frota", anchor=False)  
+    df_carro = df.query('Veículo == "Veículo A"')
 
-#         card6, card7, card8, card9, card11 = st.columns(5)
+    contagem_saidas2 = df_carro.shape[0]
 
-#         st.subheader("Registros", anchor=False)
+    with carda:
+        ultimo_indice = df_carro.index.max()
 
-#         df_carro2 = df.query('Veiculo == "Strada"')
-
-#         contagem_saidas2 = df_carro2.shape[0]
-
-#         with card6:
-#             ultimo_indice = df_carro2.index.max()
-
-#             if contagem_saidas2 % 2 == 0:
-#                 st.write(f"🟢 STRADA")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/strada.png",width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Entregou')
+        if contagem_saidas2 % 2 == 0:
+            st.write(f"🟢 Veículo A")
+            st.write(df_carro.loc[ultimo_indice, "Destino"])
+            st.image("img/veiculoA.png",width=130)
+            st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
                 
-#             else:
-#                 st.write(f"🟠 STRADA")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/strada.png", width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Pegou')
+        else:
+            st.write(f"🟠 Veículo A")
+            st.write(df_carro.loc[ultimo_indice, "Destino"])
+            st.image("img/stradA.png", width=130)
+            st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             
-# # -----------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
 
-# # Carro 1 status 
-#         df_carro1 = df.query('Veiculo == "Gol Branco"')
+# Carro B status 
+        df_carro = df.query('Veículo == "Veículo B"')
 
-#         contagem_saidas1 = df_carro1.shape[0]
+        contagem_saidas1 = df_carro.shape[0]
 
-#         with card11:
-#             ultimo_indice = df_carro1.index.max()
+        with cardb:
+            ultimo_indice = df_carro.index.max()
 
-#             if contagem_saidas1 % 2 == 0:
-#                 st.write(f"🟢 GOL")
-#                 st.write(df_carro1.loc[ultimo_indice, "Destino"])
-#                 st.image("img/gol.png",width=130)
-#                 st.write(f'{df_carro1.loc[ultimo_indice, "Motorista"]} Entregou')
+            if contagem_saidas1 % 2 == 0:
+                st.write(f"🟢 Veículo B")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoB.png",width=130)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
                 
 
-#             else:
-#                 st.write(f"🟠 GOL")
-#                 st.write(df_carro1.loc[ultimo_indice, "Destino"])
-#                 st.image("img/gol.png", width=130)
-#                 st.write(f'{df_carro1.loc[ultimo_indice, "Motorista"]} Pegou')
+            else:
+                st.write(f"🟠 Veíuclo B")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoB.png", width=130)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-# # -----------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
 
-# # carro 3 status   
-#         df_carro2 = df.query('Veiculo == "Caminhão Branco Pequeno"')
+# carro 3 status   
+        df_carro = df.query('Veículo == "Veículo C"')
 
-#         contagem_saidas2 = df_carro2.shape[0]
+        contagem_saidas2 = df_carro.shape[0]
 
-#         with card7:
+        with cardc:
 
-#             ultimo_indice = df_carro2.index.max()
+            ultimo_indice = df_carro.index.max()
 
-#             if contagem_saidas2 % 2 == 0:
-#                 st.write(f"🟢 CAMINHÃO BRANCO")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/caminhabranco.png",width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Entregou')
-
-
-#             else:
-#                 st.write(f" 🟠CAMINHÃO BRANCO")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/caminhabranco.png", width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Pegou')
+            if contagem_saidas2 % 2 == 0:
+                st.write(f"🟢 Veículo C")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoC.png",width=130)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-# # -----------------------------------------------------------------------------------------------------------
-
-# # carro 4 status   
-#         df_carro2 = df.query('Veiculo == "Caminhão Branco Thór"')
-
-#         contagem_saidas2 = df_carro2.shape[0]
-
-#         with card8:
-
-#             ultimo_indice = df_carro2.index.max()
+            else:
+                st.write(f"🟠 Veículo C")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoC.png", width=130)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-#             if contagem_saidas2 % 2 == 0:
-#                 st.write(f"🟢 THÓR")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/thor.png",width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Entregou')
+# -----------------------------------------------------------------------------------------------------------
+
+# carro D status   
+        df_carro = df.query('Veículo == "Veículo D"')
+
+        contagem_saidas2 = df_carro.shape[0]
+
+        with cardd:
+
+            ultimo_indice = df_carro.index.max()
 
 
-#             else:
-#                 st.write("🟠 THÓR")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/thor.png", width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Pegou')
+            if contagem_saidas2 % 2 == 0:
+                st.write(f"🟢 Veículo D")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoD.png",width=130)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-# # -----------------------------------------------------------------------------------------------------------
-# # carro 5 status   
-
-#         df_carro2 = df.query('Veiculo == "Caminhão Vermelho"')
-
-#         contagem_saidas2 = df_carro2.shape[0]
-
-#         with card9:
-
-#             ultimo_indice = df_carro2.index.max()
+            else:
+                st.write("🟠 Veículo D")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoD.png", width=130)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-#             if contagem_saidas2 % 2 == 0:
-#                 st.write(f"🟢 CAMINHÃO VERMELHO")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/vermelho.png",width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Entregou')
+# -----------------------------------------------------------------------------------------------------------
+# carro 5 status   
+
+        df_carro = df.query('Veículo == "Veículo E"')
+
+        contagem_saidas2 = df_carro.shape[0]
+
+        with carde:
+
+            ultimo_indice = df_carro.index.max()
 
 
-
-            
-#             else:
-#                 st.write(f" 🟠CAMINHÃO VERMELHO")
-#                 st.write(df_carro2.loc[ultimo_indice, "Destino"])
-#                 st.image("img/vermelho.png", width=130)
-#                 st.write(f'{df_carro2.loc[ultimo_indice, "Motorista"]} Pegou')
+            if contagem_saidas2 % 2 == 0:
+                st.write(f"🟢 Veículo E")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoE.png",width=180)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
+            else:
+                st.write(f"🟠 Veículo E")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/veiculoE.png", width=180)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-#     col6, = st.columns(1)
+# -----------------------------------------------------------------------------------------------------------
+
+
+    with tab2:
     
-# # -----------------------------------------------------------------------------------------------------------
+        df["classificar"] = df["Data"] + " " + df["Hora"]
 
-#     with col6:
-    
-#         df["classificar"] = df["Data"] + " " + df["Hora"]
+        df["id"] = df['classificar'].rank()
 
-#         df["id"] = df['classificar'].rank()-1
+        df.set_index = df["id"]
 
-#         df.set_index = df["id"]
+        df = df.sort_values(by="id",ascending=True)
 
-#         df = df.sort_values(by="id",ascending=True)
+        df['Km'] = df["Km"].replace(".","").replace(",","")
 
-#         df['Km'] = df["Km"].replace(".","").replace(",","")
+        lista_carros = df_Veiculos
 
-#         df = df.drop(columns=["id","Reporte de Danos","Vistoria","classificar"])
+        filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
 
-#         lista_carros = df_Veiculos["Veiculo"].unique()
+        df_filtro = df.query('Veículo == @filter_veiculos')
 
-#         filter_veiculos = st.multiselect("carros",df_Veiculos["Veiculo"].unique(),default=lista_carros)
-
-#         df_filtro = df.query('Veiculo == @filter_veiculos')
-
-#         df_filtro = df_filtro.sort_index(ascending=False)
+        df_filtro = df_filtro.sort_index(ascending=False)
         
-#         st.dataframe(df_filtro,use_container_width=True,hide_index=False)
+        df_filtro = df_filtro.drop(columns="id")
+                
+        st.dataframe(df_filtro,use_container_width=True,hide_index=True)
      
-#         df_rua = df.query('Tipo == "Entrada"')
+        df_rua = df.query('Tipo == "Entrada"')
 
-#         df_rua = df.shape[0]
+        df_rua = df.shape[0]
 
-#         contagem_rua = df_rua % 2
+        contagem_rua = df_rua % 2
+        
 
 
-# # -----------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
 
-# # METRICAS
+# METRICAS
 
-#     with card1:
-#         st.metric("QTD VEÍCULOS", f'🚚 {qtd_Veiculos}')
+    with card1:
+        st.metric("QTD VEÍCULOS", f'🚛 {qtd_Veiculos}')
 
     
-#     with card2:
+    with card2:
         
-#         st.metric("QTD RUA", f'🟠 {rua}')
+        st.metric("QTD RUA", f'🟠 {rua}')
 
-#     with card5:
-#         st.metric("CONDUTORES REGISTRADOS", f'👨‍✈️ {qtd_motoristas}')
+    with card5:
+        st.metric("CONDUTORES REGISTRADOS", f'👨‍✈️ {qtd_motoristas}')
         
-#     with card4:
-#         st.metric("QTD VIAGENS", f'🏁 {df_qtd_viagens}')
+    with card4:
+        st.metric("QTD VIAGENS", f'🏁 {df_qtd_viagens}')
 
-#     with card3:
-#         st.metric("NO PÁTIO",f' 🟢{patio}')
-
-# # -----------------------------------------------------------------------------------------------------------
-# # REGISTRAR
-
-# with tab2:
-
-#     col1, = st.columns(1)
-    
-#     with col1:
-#         st.subheader("Registrar Movimentação",anchor=False)  
-#         coltipo, = st.columns(1)
-#         cola, colb = st.columns(2)
-#         colc, cold = st.columns(2)
-#         cole, colf = st.columns(2)
-#         colg, = st.columns(1)
-
-
-#     with col1:
-
-#         with coltipo:
-#             tipo = st.selectbox("Tipo",["Entrada","Saída"])
-
-#         with colb:
-#             motorista = st.selectbox("Motorista",df_motoristas["Motorista"].unique())
-
-#         with cola:
-#             Veiculo = st.selectbox("Veiculo",df_Veiculos["Veiculo"].unique())
-
-#         with colc:
-#             date = st.date_input("Data",format="DD/MM/YYYY")
-
-#         with cold:
-
-#             fuso_horario = pytz.timezone("America/Sao_Paulo")
-
-#             carimbo = dt.datetime.now(fuso_horario).hour
-
-#             hr = dt.datetime.now().hour - 3 
-            
-#             hora_atual = dt.datetime.now(fuso_horario).time()
-
-#             hora = st.text_input("horário")
-
-#         with cole:
-
-#             hr = dt.datetime.now(fuso_horario).hour
-
-#             min = f"{dt.datetime.now().minute:02}"
-
-#             hora = f'{hr}:{min}'
-
-#             dfcarro = df.query('Veiculo == @Veiculo & Tipo == "Entrada"').reset_index()
-
-#             indicecarro = dfcarro["Km"].max()
-
-#             if tipo == "Entrada":
-#                 quilometragem = st.number_input("Kilometragem", format="%1.0f")
-#                 destino = "Focal Matriz"
-#                 with colf:
-#                     vistoria = st.selectbox("Vistoria",["Ok","COM DANO"])    
-#             else:
-#                 destino = st.text_input("Destino")
-#                 quilometragem = indicecarro
-#                 vistoria = "Ok"   
-#             with colg:
-#                 if vistoria == "COM DANO":
-#                     report = st.text_area("Descrever")
-#                 else:
-#                     report = ""
-            
-
-#         if st.button("REGISTRAR"):
-
-#             gc = gs.service_account("credencial.json")
-            
-#             url = 'https://docs.google.com/spreadsheets/d/11tgA-emVoqMda7Y2zBKNStSbBVHqK887G6cx57AKH_c/edit?usp=sharing'
-#             sh = gc.open_by_url(url)
-#             Worksheet = sh.get_worksheet(0)
-
-#             date = date.strftime("%d/%m/%Y")
-       
-#             nova_linha = [motorista, Veiculo, date, tipo, hora,quilometragem, destino,vistoria,report]
-
-#             print(nova_linha)
-
-#             Worksheet.append_row(nova_linha)
-            
-#             st.success("Movimentação salva!")
-        
-#             st.cache_data.clear()
-            
-#             st.rerun()
-
-
-# # ---------------------------------------------------------------------------------
-# #EXCLUIR REGISTRO
-
-# with tab3:
-
-#     st.subheader("Filtrar",anchor=False)
-
-#     col1, = st.columns(1)
-
-#     st.subheader("Escolher Linha",anchor=False)
-
-#     col2, = st.columns(1)
-
-#     with col1:
-        
-#         st.write(max_date)
-
-#         data_delete = st.date_input("Data da Viagem",format="DD/MM/YYYY",value="2025-01-17")
-
-#         data_delete = data_delete.strftime("%d/%m/%Y")
-        
-#         df_delete = viagens.query('Data == @data_delete')
-
-#         st.dataframe(df_delete,use_container_width=True)
-
-#     with col2:
-
-#         row_delete = st.selectbox("Linha", df_delete.index)
-
-#         row = df_delete.query('index == @row_delete')
-
-#         st.dataframe(row,use_container_width=True)
-
-#         row_index = row.index[0]
-
-        
-#         if st.button("Excluir Viagem"):
-
-#             gc = gs.service_account("credencial.json")
-
-#             url = 'https://docs.google.com/spreadsheets/d/11tgA-emVoqMda7Y2zBKNStSbBVHqK887G6cx57AKH_c/edit?usp=sharing'
-
-#             sh = gc.open_by_url(url)
-
-#             Worksheet = sh.get_worksheet(0)
-
-#             linha_deletar = row_index + 2
-
-#             Worksheet.delete_rows(int(linha_deletar))
-            
-#             st.success("Registro Excluído")
-        
-#             st.cache_data.clear()
-            
-#             st.rerun()
-
+    with card3:
+        st.metric("NO PÁTIO",f' 🟢{patio}')
 
 
 # ----------------------------------------------------------------------------------
@@ -500,7 +336,7 @@ st.markdown(top, unsafe_allow_html=True)
 
 borda = """
             <style>
-            [Data-testid="stColumn"]
+            [Data-testid="column"]
             {
             background-color: #ffffff;
             border-radius: 15px;
@@ -526,7 +362,6 @@ style1 = """
             padding: 10px;
             text-align: center;
             color: #3885CC;
-            opacity: 100%;
             }
             </style>
             """
