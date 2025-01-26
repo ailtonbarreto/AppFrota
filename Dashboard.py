@@ -366,6 +366,8 @@ style1 = """
             """
 
 st.markdown(style1, unsafe_allow_html=True) 
+
+
 # ----------------------------------------------------------------------------------
 
 style2 = """
@@ -413,3 +415,15 @@ style5 = """
     </style>
 """
 st.markdown(style5, unsafe_allow_html=True) 
+# ----------------------------------------------------------------------------------
+
+style6 = """
+            <style>
+            [Data-testid="stMetricValue"]
+            {
+            color: #3885CC;
+            }
+            </style>
+            """
+
+st.markdown(style6, unsafe_allow_html=True) 
