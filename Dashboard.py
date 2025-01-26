@@ -40,7 +40,7 @@ df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
 df = df.rename(columns={"Tipo:": "Tipo"})
 df = df.rename(columns={"Veículo:": "Veículo"})
 
-
+frame = '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyyDxbdLpevKT3lP0-5afw/viewform?embedded=true" width="640" height="1286" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>'
 
 # ---------------------------------------------------------------------------------------------
 # layout
@@ -57,6 +57,7 @@ with tab2:
 with tab3:
     st.subheader("Link Para Preencher",anchor=False)
     st.image("img/qr.png")
+    st.components.v1.iframe(src=frame, width=800, height=600)
 
 
 # ---------------------------------------------------------------------------------------------
