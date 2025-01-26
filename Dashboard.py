@@ -55,7 +55,6 @@ with tab2:
     st.subheader("Registros", anchor=False)
 
 
-
 # ---------------------------------------------------------------------------------------------
 # Dataframe viagens
 
@@ -336,7 +335,7 @@ st.markdown(top, unsafe_allow_html=True)
 
 borda = """
             <style>
-            [Data-testid="column"]
+            [Data-testid="stColumn"]
             {
             background-color: #ffffff;
             border-radius: 15px;
