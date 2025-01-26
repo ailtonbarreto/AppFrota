@@ -359,7 +359,6 @@ style1 = """
             border-radius: 15px;
             padding: 10px;
             text-align: center;
-            color: #3885CC;
             }
             </style>
             """
