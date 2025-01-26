@@ -131,6 +131,8 @@ with tab1:
     
 
     carda, cardb, cardc, cardd, carde = st.columns(5)
+    cardf, cardg, cardh, cardi, cardj = st.columns(5)
+    
 
     df_carro = df.query('Veículo == "Veículo A"')
 
