@@ -45,7 +45,7 @@ df = df.rename(columns={"Veículo:": "Veículo"})
 # ---------------------------------------------------------------------------------------------
 # layout
 
-tab1, tab2 = st.tabs(["Disponibilidade","Registros"])
+tab1, tab2,tab3 = st.tabs(["Disponibilidade","Registros","Formulário"])
 
 
 with tab1:
@@ -53,6 +53,10 @@ with tab1:
     
 with tab2:
     st.subheader("Registros", anchor=False)
+    
+with tab3:
+    st.subheader("Link Para Preencher",anchor=False)
+    st.image("img/qr.png")
 
 
 # ---------------------------------------------------------------------------------------------
