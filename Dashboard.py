@@ -48,9 +48,6 @@ frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyy
 
 tab1, tab2,tab3 = st.tabs(["Disponibilidade","Registros","Formulário"])
 
-
-with tab1:
-    st.subheader("Disponibilidade da Frota", anchor=False)
     
 with tab2:
     st.subheader("Registros", anchor=False)
@@ -124,6 +121,9 @@ carros_disp = carros_disp.shape[0]
 with tab1:
 
     card1, card2, card3, card4, card5 = st.columns(5)
+    
+    st.subheader("Disponibilidade da Frota", anchor=False)
+    
 
 
     # carro A status
