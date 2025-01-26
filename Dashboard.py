@@ -337,7 +337,7 @@ borda = """
             <style>
             [Data-testid="stColumn"]
             {
-            background-color: #ffffff;
+            background-color: #252629;
             border-radius: 15px;
             padding: 10px;
             text-align: center;
@@ -356,7 +356,6 @@ style1 = """
             <style>
             [Data-testid="stMetricLabel"]
             {
-            background-color: #ffffff;
             border-radius: 15px;
             padding: 10px;
             text-align: center;
