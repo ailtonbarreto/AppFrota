@@ -298,21 +298,21 @@ with tab1:
 # METRICAS
 
     with card1:
-        st.metric("QTD VEÍCULOS", f'🚛 {qtd_Veiculos}')
+        st.metric("QTD Veículos", f'🚛 {qtd_Veiculos}')
 
     
     with card2:
         
-        st.metric("QTD RUA", f'🟠 {rua}')
+        st.metric("Estrada", f'🟠 {rua}')
 
     with card5:
-        st.metric("CONDUTORES REGISTRADOS", f'👨‍✈️ {qtd_motoristas}')
+        st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
         
     with card4:
-        st.metric("QTD VIAGENS", f'🏁 {df_qtd_viagens}')
+        st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
 
     with card3:
-        st.metric("NO PÁTIO",f' 🟢{patio}')
+        st.metric("Garagem",f' 🟢{patio}')
 
 
 # ----------------------------------------------------------------------------------
