@@ -278,20 +278,13 @@ with tab1:
 
             else:
                 st.write(f"🟢 Veículo F")
+                link = "www.ailtonbarreto.com.br"
                 # st.write(df_carro.loc[ultimo_indice, "Destino"])
                 # st.image("img/Bus.png", width=180,anchor="www.google.com")
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+                st.markdown(f"[Clique aqui para mais detalhes]({link})", unsafe_allow_html=True)
                 
-                link = "https://www.google.com"
-                img = "img/Bus.png"
-                image_html = f"""
-                <a href="{link}" target="_blank">
-                <img src={img} style="width:180px;">
-                </a>
-                """
-                st.markdown(image_html, unsafe_allow_html=True)
 
-                # st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 7 status   
