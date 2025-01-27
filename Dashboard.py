@@ -122,6 +122,8 @@ with tab1:
 
     card1, card2, card3, card4, card5 = st.columns(5)
     
+    st.divider()
+    
     st.subheader("Disponibilidade da Frota", anchor=False)
     
 
