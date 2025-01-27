@@ -285,7 +285,7 @@ with tab1:
                 link = "https://www.google.com"  # Substitua pelo link desejado
                 image_html = f"""
                 <a href="{link}" target="_blank">
-                <img src="img/Bus.png" alt="Bus" style="width:180px;">
+                <img src={"img/Bus.png"} alt="Bus" style="width:180px;">
                 </a>"""
                 st.markdown(image_html, unsafe_allow_html=True)
 
