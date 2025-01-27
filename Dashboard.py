@@ -282,10 +282,11 @@ with tab1:
                 # st.image("img/Bus.png", width=180,anchor="www.google.com")
                 # st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
                 
-                link = "https://www.google.com"  # Substitua pelo link desejado
+                link = "https://www.google.com"
+                img = "img/Bus.png"
                 image_html = f"""
                 <a href="{link}" target="_blank">
-                <img src=".img/Bus.png" alt="Bus" style="width:180px;">
+                <img src={img} style="width:180px;">
                 </a>"""
                 st.markdown(image_html, unsafe_allow_html=True)
 
