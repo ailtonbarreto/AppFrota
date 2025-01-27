@@ -142,7 +142,7 @@ with tab1:
         ultimo_indice = df_carro.index.max()
 
         if contagem_saidas2 % 2 == 0:
-            st.write(f"🟢 Veículo A")
+            st.write(f"🟠 Veículo A")
             st.write(df_carro.loc[ultimo_indice, "Destino"])
             st.image("img/Bus.png",width=180)
             st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -150,7 +150,7 @@ with tab1:
 
                 
         else:
-            st.write(f"🟠 Veículo A")
+            st.write(f"🟢 Veículo A")
             st.write(df_carro.loc[ultimo_indice, "Destino"])
             st.image("img/Busout.png", width=180)
             st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -168,14 +168,14 @@ with tab1:
             ultimo_indice = df_carro.index.max()
 
             if contagem_saidas1 % 2 == 0:
-                st.write(f"🟢 Veículo B")
+                st.write(f"🟠 Veículo B")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
                 
 
             else:
-                st.write(f"🟠 Veíuclo B")
+                st.write(f"🟢 Veíuclo B")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -193,14 +193,14 @@ with tab1:
             ultimo_indice = df_carro.index.max()
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo C")
+                st.write(f"🟠 Veículo C")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo C")
+                st.write(f"🟢 Veículo C")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -219,14 +219,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo D")
+                st.write(f"🟠 Veículo D")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write("🟠 Veículo D")
+                st.write("🟢 Veículo D")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -245,14 +245,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo E")
+                st.write(f"🟠 Veículo E")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo E")
+                st.write(f"🟢 Veículo E")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -270,14 +270,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo F")
+                st.write(f"🟠 Veículo F")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo F")
+                st.write(f"🟢 Veículo F")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -295,14 +295,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo G")
+                st.write(f"🟠 Veículo G")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo G")
+                st.write(f"🟢 Veículo G")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -321,14 +321,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo H")
+                st.write(f"🟠 Veículo H")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo H")
+                st.write(f"🟢 Veículo H")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -346,14 +346,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo I")
+                st.write(f"🟠 Veículo I")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo I")
+                st.write(f"🟢 Veículo I")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
@@ -371,14 +371,14 @@ with tab1:
 
 
             if contagem_saidas2 % 2 == 0:
-                st.write(f"🟢 Veículo J")
+                st.write(f"🟠 Veículo J")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png",width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             else:
-                st.write(f"🟠 Veículo J")
+                st.write(f"🟢 Veículo J")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
