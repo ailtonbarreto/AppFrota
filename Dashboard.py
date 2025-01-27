@@ -431,7 +431,7 @@ with tab1:
     
     with card2:
         
-        st.metric("Estrada", f'🟠 {rua}')
+        st.metric("Estrada", f'🟢 {rua}')
 
     with card5:
         st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
@@ -440,7 +440,7 @@ with tab1:
         st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
 
     with card3:
-        st.metric("Garagem",f' 🟢{patio}')
+        st.metric("Garagem",f'🟠 {patio}')
 
 
 # ----------------------------------------------------------------------------------
