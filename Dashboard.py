@@ -277,10 +277,18 @@ with tab1:
 
 
             else:
-                st.write(f"🟢 Veículo F")
-                st.write(df_carro.loc[ultimo_indice, "Destino"])
-                st.image("img/Bus.png", width=180)
-                st.navigation("www.Google.com")
+                # st.write(f"🟢 Veículo F")
+                # st.write(df_carro.loc[ultimo_indice, "Destino"])
+                # st.image("img/Bus.png", width=180,anchor="www.google.com")
+                # st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+                
+                link = "https://www.google.com"  # Substitua pelo link desejado
+                image_html = f"""
+                <a href="{link}" target="_blank">
+                <img src="img/Bus.png" alt="Bus" style="width:180px;">
+                </a>"""
+                st.markdown(image_html, unsafe_allow_html=True)
+
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 # -----------------------------------------------------------------------------------------------------------
