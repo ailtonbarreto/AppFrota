@@ -280,7 +280,7 @@ with tab1:
                 # st.write(f"🟢 Veículo F")
                 # st.write(df_carro.loc[ultimo_indice, "Destino"])
                 # st.image("img/Bus.png", width=180,anchor="www.google.com")
-                # st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
                 
                 link = "https://www.google.com"
                 img = "img/Bus.png"
@@ -290,7 +290,7 @@ with tab1:
                 </a>"""
                 st.markdown(image_html, unsafe_allow_html=True)
 
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+                # st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 7 status   
