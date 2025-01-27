@@ -309,7 +309,7 @@ with tab1:
 
 
 # -----------------------------------------------------------------------------------------------------------
-# carro 7 status   
+# carro 8 status   
 
         df_carro = df.query('Veículo == "Veículo H"')
 
@@ -329,6 +329,31 @@ with tab1:
 
             else:
                 st.write(f"🟠 Veículo H")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/Busout.png", width=180)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+# -----------------------------------------------------------------------------------------------------------
+# carro 9 status   
+
+        df_carro = df.query('Veículo == "Veículo I"')
+
+        contagem_saidas2 = df_carro.shape[0]
+
+        with cardi:
+
+            ultimo_indice = df_carro.index.max()
+
+
+            if contagem_saidas2 % 2 == 0:
+                st.write(f"🟢 Veículo I")
+                st.write(df_carro.loc[ultimo_indice, "Destino"])
+                st.image("img/Bus.png",width=180)
+                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+            else:
+                st.write(f"🟠 Veículo I")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Busout.png", width=180)
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
