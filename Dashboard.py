@@ -277,7 +277,7 @@ with tab1:
 
 
             else:
-                # st.write(f"🟢 Veículo F")
+                st.write(f"🟢 Veículo F")
                 # st.write(df_carro.loc[ultimo_indice, "Destino"])
                 # st.image("img/Bus.png", width=180,anchor="www.google.com")
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
