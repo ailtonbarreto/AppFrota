@@ -287,7 +287,8 @@ with tab1:
                 image_html = f"""
                 <a href="{link}" target="_blank">
                 <img src={img} style="width:180px;">
-                </a>"""
+                </a>
+                """
                 st.markdown(image_html, unsafe_allow_html=True)
 
                 # st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
