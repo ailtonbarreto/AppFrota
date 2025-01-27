@@ -426,7 +426,7 @@ with tab1:
 # METRICAS
 
     with card1:
-        st.metric("QTD Veículos", f'{st.image("img/Bus.png", width=40)} {qtd_Veiculos}')
+        st.metric("QTD Veículos", f'🚌 {qtd_Veiculos}')
 
     
     with card2:
