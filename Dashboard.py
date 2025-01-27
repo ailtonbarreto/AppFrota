@@ -280,6 +280,7 @@ with tab1:
                 st.write(f"🟢 Veículo F")
                 st.write(df_carro.loc[ultimo_indice, "Destino"])
                 st.image("img/Bus.png", width=180)
+                st.navigation("www.Google.com")
                 st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 # -----------------------------------------------------------------------------------------------------------
