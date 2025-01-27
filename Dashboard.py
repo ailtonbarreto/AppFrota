@@ -126,14 +126,12 @@ with tab1:
     
     st.subheader("Disponibilidade da Frota", anchor=False)
     
-
-
     # carro A status
   
-    
-
     carda, cardb, cardc, cardd, carde = st.columns(5)
     cardf, cardg, cardh, cardi, cardj = st.columns(5)
+    
+    st.divider()
     
 
     df_carro = df.query('Veículo == "Veículo A"')
