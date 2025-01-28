@@ -128,6 +128,7 @@ with tab1:
     
     st.divider()
     
+    colmap,  = st.columns(1)
 
     df_carro = df.query('Veículo == "Veículo A"')
 
@@ -463,7 +464,7 @@ map_data = pd.DataFrame({
     "lon": [-46.6333, -46.6465, -46.6400],
     "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
 })
-with tab1:
+with colmap:
     st.title("Geolocalização",anchor=False)
     st.map(map_data)
 
