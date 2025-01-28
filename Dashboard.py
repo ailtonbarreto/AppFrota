@@ -408,7 +408,7 @@ with tab1:
         
         df_filtro = df_filtro.drop(columns="id")
                 
-        st.dataframe(df_filtro,use_container_width=True,hide_index=True)
+        # st.dataframe(df_filtro,use_container_width=True,hide_index=True)
      
         df_rua = df.query('Tipo == "Entrada"')
 
