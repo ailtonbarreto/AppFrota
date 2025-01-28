@@ -386,35 +386,35 @@ with tab1:
 # -----------------------------------------------------------------------------------------------------------
 
 
-    with tab2:
+
     
-        df["classificar"] = df["Data"] + " " + df["Hora"]
+    df["classificar"] = df["Data"] + " " + df["Hora"]
 
-        df["id"] = df['classificar'].rank()
+    df["id"] = df['classificar'].rank()
 
-        df.set_index = df["id"]
+    df.set_index = df["id"]
 
-        df = df.sort_values(by="id",ascending=True)
+    df = df.sort_values(by="id",ascending=True)
 
-        df['Km'] = df["Km"].replace(".","").replace(",","")
+    df['Km'] = df["Km"].replace(".","").replace(",","")
 
-        lista_carros = df_Veiculos
+    lista_carros = df_Veiculos
 
-        filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
+    filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
 
-        df_filtro = df.query('Veículo == @filter_veiculos')
+    df_filtro = df.query('Veículo == @filter_veiculos')
 
-        df_filtro = df_filtro.sort_index(ascending=False)
+    df_filtro = df_filtro.sort_index(ascending=False)
+            
+    df_filtro = df_filtro.drop(columns="id")
+                    
+    # st.dataframe(df_filtro,use_container_width=True,hide_index=True)
         
-        df_filtro = df_filtro.drop(columns="id")
-                
-        # st.dataframe(df_filtro,use_container_width=True,hide_index=True)
-     
-        df_rua = df.query('Tipo == "Entrada"')
+    df_rua = df.query('Tipo == "Entrada"')
 
-        df_rua = df.shape[0]
+    df_rua = df.shape[0]
 
-        contagem_rua = df_rua % 2
+    contagem_rua = df_rua % 2
         
 
 
