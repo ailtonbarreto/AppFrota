@@ -41,13 +41,10 @@ frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyy
 # ---------------------------------------------------------------------------------------------
 # layout
 
-tab1, tab2,tab3 = st.tabs(["Disponibilidade","Registros","Formulário"])
+tab1, tab2 = st.tabs(["Disponibilidade","Formulário"])
 
     
 with tab2:
-    st.subheader("Registros", anchor=False)
-    
-with tab3:
     st.subheader("Link Para Preencher",anchor=False)
     st.image("img/qr.png")
 
