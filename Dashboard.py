@@ -464,7 +464,7 @@ map_data = pd.DataFrame({
     "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
 })
 with tab1:
-    st.title("Geolocalização")
+    st.title("Geolocalização",anchor=False)
     st.map(map_data)
 
 
