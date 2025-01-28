@@ -452,12 +452,10 @@ data = {
     "Consumo (L/100km)": [30, 35, 40]
 }
 
+# -------------------------------------------------------------------------------------
 
 df = pd.DataFrame(data)
 
-
-
-st.dataframe(df)
 
 
 # Simulação de mapa (usando coordenadas fictícias)
