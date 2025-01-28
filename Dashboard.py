@@ -128,6 +128,8 @@ with tab1:
     
     st.divider()
     
+    st.subheader("Geolocalização",anchor=False)
+    
     colmap,  = st.columns(1)
 
     df_carro = df.query('Veículo == "Veículo A"')
@@ -465,7 +467,6 @@ map_data = pd.DataFrame({
     "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
 })
 with colmap:
-    st.title("Geolocalização",anchor=False)
     st.map(map_data)
 
 
