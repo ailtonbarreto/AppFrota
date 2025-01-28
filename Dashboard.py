@@ -1,10 +1,5 @@
 import streamlit as st
 import pandas as pd
-import datetime as dt
-import gspread as gs
-from gspread import worksheet
-import streamlit.components.v1 as components
-import pytz
 
 # ---------------------------------------------------------------------------------------------
 # layout
@@ -446,7 +441,7 @@ with tab1:
 
 
 
-import plotly.express as px
+
 
 # Simulação de dados da frota
 data = {
@@ -457,20 +452,13 @@ data = {
     "Consumo (L/100km)": [30, 35, 40]
 }
 
-# Criando um DataFrame
+
 df = pd.DataFrame(data)
 
-# Título do Painel
-st.title("Painel de Gestão de Frota")
 
-# Exibindo a tabela com dados da frota
-st.subheader("Resumo da Frota")
+
 st.dataframe(df)
 
-# Gráfico de consumo
-st.subheader("Consumo de Combustível por Veículo")
-fig = px.bar(df, x="Veículo", y="Consumo (L/100km)", color="Status", title="Consumo de Combustível")
-st.plotly_chart(fig)
 
 # Simulação de mapa (usando coordenadas fictícias)
 st.subheader("Localização dos Veículos")
