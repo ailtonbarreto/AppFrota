@@ -147,8 +147,7 @@ with tab1:
             st.image("img/Busout.png",width=180)
             st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
-
-                
+   
         else:
             st.write(f"🟢 Veículo A")
             st.write(df_carro.loc[ultimo_indice, "Destino"])
@@ -444,6 +443,43 @@ with tab1:
 
     with card3:
         st.metric("Garagem",f'🟠 {patio}')
+
+
+
+import plotly.express as px
+
+# Simulação de dados da frota
+data = {
+    "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"],
+    "Localização": ["Terminal 1", "Em trânsito", "Terminal 2"],
+    "Motorista": ["Carlos", "Ana", "João"],
+    "Status": ["Disponível", "Em serviço", "Manutenção"],
+    "Consumo (L/100km)": [30, 35, 40]
+}
+
+# Criando um DataFrame
+df = pd.DataFrame(data)
+
+# Título do Painel
+st.title("Painel de Gestão de Frota")
+
+# Exibindo a tabela com dados da frota
+st.subheader("Resumo da Frota")
+st.dataframe(df)
+
+# Gráfico de consumo
+st.subheader("Consumo de Combustível por Veículo")
+fig = px.bar(df, x="Veículo", y="Consumo (L/100km)", color="Status", title="Consumo de Combustível")
+st.plotly_chart(fig)
+
+# Simulação de mapa (usando coordenadas fictícias)
+st.subheader("Localização dos Veículos")
+map_data = pd.DataFrame({
+    "lat": [-23.5505, -23.5629, -23.5740],
+    "lon": [-46.6333, -46.6465, -46.6400],
+    "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
+})
+st.map(map_data)
 
 
 # ----------------------------------------------------------------------------------
