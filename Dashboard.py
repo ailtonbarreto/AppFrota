@@ -400,7 +400,7 @@ with tab1:
 
     lista_carros = df_Veiculos
 
-    filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
+    # filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
 
     # df_filtro = df.query('Veículo == @filter_veiculos')
 
