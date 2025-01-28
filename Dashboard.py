@@ -479,7 +479,8 @@ map_data = pd.DataFrame({
     "lon": [-46.6333, -46.6465, -46.6400],
     "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
 })
-st.map(map_data)
+with tab1:
+    st.map(map_data)
 
 
 # ----------------------------------------------------------------------------------
