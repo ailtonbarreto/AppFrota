@@ -399,16 +399,6 @@ with tab1:
     df['Km'] = df["Km"].replace(".","").replace(",","")
 
     lista_carros = df_Veiculos
-
-    # filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
-
-    # df_filtro = df.query('Veículo == @filter_veiculos')
-
-    # df_filtro = df_filtro.sort_index(ascending=False)
-            
-    # df_filtro = df_filtro.drop(columns="id")
-                    
-    # st.dataframe(df_filtro,use_container_width=True,hide_index=True)
         
     df_rua = df.query('Tipo == "Entrada"')
 
