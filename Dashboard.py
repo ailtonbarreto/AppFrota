@@ -457,9 +457,6 @@ data = {
 df = pd.DataFrame(data)
 
 
-
-# Simulação de mapa (usando coordenadas fictícias)
-st.subheader("Localização dos Veículos")
 map_data = pd.DataFrame({
     "lat": [-23.5505, -23.5629, -23.5740],
     "lon": [-46.6333, -46.6465, -46.6400],
