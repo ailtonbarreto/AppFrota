@@ -402,11 +402,11 @@ with tab1:
 
     filter_veiculos = st.multiselect("carros",df_Veiculos,default=lista_carros)
 
-    df_filtro = df.query('Veículo == @filter_veiculos')
+    # df_filtro = df.query('Veículo == @filter_veiculos')
 
-    df_filtro = df_filtro.sort_index(ascending=False)
+    # df_filtro = df_filtro.sort_index(ascending=False)
             
-    df_filtro = df_filtro.drop(columns="id")
+    # df_filtro = df_filtro.drop(columns="id")
                     
     # st.dataframe(df_filtro,use_container_width=True,hide_index=True)
         
