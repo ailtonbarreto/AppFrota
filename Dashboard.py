@@ -446,16 +446,38 @@ map_data = {
 }
 
 
-# Gerando o mapa com pydeck
+# # Gerando o mapa com pydeck
+# deck = pdk.Deck(
+#     layers=[
+#         pdk.Layer(
+#             "ScatterplotLayer",
+#             df,  # Dados
+#             get_position=["Longitude", "Latitude"],
+#             get_radius=30000,  # Tamanho da bolinha
+#             get_color=[0, 0, 255],
+#             pickable=True
+#         )
+#     ],
+#     initial_view_state=pdk.ViewState(
+#         latitude=df["Latitude"].mean(),
+#         longitude=df["Longitude"].mean(),
+#         zoom=6,
+#         pitch=0
+#     )
+# )
+
+
+
 deck = pdk.Deck(
     layers=[
         pdk.Layer(
-            "ScatterplotLayer",  # Tipo de camada
-            df,  # Dados
-            get_position=["Longitude", "Latitude"],  # Coordenadas
-            get_radius=30000,  # Tamanho da bolinha
-            get_color=[0, 0, 255],  # Cor das bolinhas (vermelho)
-            pickable=True  # Permite interação
+            "LineLayer",  # Tipo de camada (linha)
+            df,  # Dados (latitude e longitude)
+            get_source_position=["Longitude", "Latitude"],  # Posição de origem da linha
+            get_target_position=["Longitude", "Latitude"],  # Posição de destino da linha
+            get_color=[0, 0, 255],  # Cor das linhas (azul)
+            get_width=5,  # Largura da linha
+            pickable=True  # Permite interação com as linhas
         )
     ],
     initial_view_state=pdk.ViewState(
@@ -465,6 +487,11 @@ deck = pdk.Deck(
         pitch=0
     )
 )
+
+
+
+
+
 
 with colmap:
     st.pydeck_chart(deck,use_container_width=True)
