@@ -437,11 +437,10 @@ df
 # -------------------------------------------------------------------------------------
 
 
-map_data = {
+map_data = pd.DataFrame({
     "lat": df["Latitude"],
-    "lon": df["Longitude"],
-    "Veículo": df["Veículo"]
-}
+    "lon": df["Longitude"]
+})
 
 
 with colmap:
