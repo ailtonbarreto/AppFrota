@@ -447,17 +447,17 @@ data = {
 
 # -------------------------------------------------------------------------------------
 
-df = pd.DataFrame(data)
+# df = pd.DataFrame(data)
 
 
 
-map_data = pd.DataFrame({
-    "lat": [-23.5505, -23.5629, -23.5740],
-    "lon": [-46.6333, -46.6465, -46.6400],
-    "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
-})
-with colmap:
-    st.map(map_data)
+# map_data = pd.DataFrame({
+#     "lat": [-23.5505, -23.5629, -23.5740],
+#     "lon": [-46.6333, -46.6465, -46.6400],
+#     "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
+# })
+# with colmap:
+#     st.map(map_data)
     
 
 
