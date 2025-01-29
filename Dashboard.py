@@ -433,7 +433,8 @@ with tab1:
         st.metric("Garagem",f'🟠 {patio}')
 
 
-st.write(df["Latitude"])
+st.write(df["Latitude"].dtype)
+st.write(df["Longitude"].dtype)
 # -------------------------------------------------------------------------------------
 
 df["Latitude"] = df["Latitude"].astype(float)
