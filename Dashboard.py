@@ -433,7 +433,7 @@ with tab1:
         st.metric("Garagem",f'🟠 {patio}')
 
 
-df
+df.info()
 # -------------------------------------------------------------------------------------
 
 df["Latitude"] = df["Latitude"].astype(float)
