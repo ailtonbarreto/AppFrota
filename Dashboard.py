@@ -122,7 +122,7 @@ def get_coordinates_with_delay(city):
     else:
         return None, None
 
-df[['Latitude', 'Longitude']] = df['Cidade'].apply(lambda x: pd.Series(get_coordinates_with_delay(x)))
+df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates_with_delay(x)))
 
 
 df = df.dropna()
