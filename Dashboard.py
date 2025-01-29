@@ -459,6 +459,11 @@ data = {
     
 
 
+import time
+import pandas as pd
+import streamlit as st
+from geopy.geocoders import Nominatim
+
 # Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
@@ -473,24 +478,18 @@ def get_coordinates(city_name):
         return None, None
 
 # Supondo que 'df' seja o DataFrame com a coluna "Destino" que contém os nomes das cidades
-city_names = df["Destino"]  # Obtendo a coluna com os nomes das cidades
+df = pd.DataFrame({
+    'Destino': ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte'],
+    'Outra_Coluna': ['A', 'B', 'C']
+})
 
-# Iterando sobre as cidades e obtendo suas coordenadas
-coordinates = []
-for city_name in city_names:
-    latitude, longitude = get_coordinates(city_name)
-    
-    if latitude and longitude:
-        coordinates.append((city_name, latitude, longitude))
-        st.write(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
-    else:
-        coordinates.append((city_name, None, None))
-        st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
+# Usando apply para adicionar as colunas Latitude e Longitude diretamente ao DataFrame
+df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
-# Você pode armazenar as coordenadas no DataFrame ou usá-las conforme necessário
-coordinates_df = pd.DataFrame(coordinates, columns=["Cidade", "Latitude", "Longitude"])
+# Exibindo o DataFrame final
+st.write(df)
 
-# df["lat"] = 
+
 
 
 # ----------------------------------------------------------------------------------
