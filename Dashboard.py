@@ -464,13 +464,12 @@ def get_coordinates(city_name):
 
 
 
-# Obtendo as coordenadas e adicionando as colunas de Latitude e Longitude
 df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
-# Criando o DataFrame para o mapa com latitudes, longitudes e veículos
+
 map_data = df[['Latitude', 'Longitude', 'Veículo']]
 
-# Exibindo o mapa no Streamlit
+
 with st.container():
     st.map(map_data)
 
