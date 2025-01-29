@@ -464,17 +464,17 @@ def get_coordinates(city_name):
 
 df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
+df
+
+# map_data = {
+#     "lat": df["Latitude"],
+#     "lon": df["Longitude"],
+#     "Veículo": df["Veículo"]
+# }
 
 
-map_data = {
-    "lat": df["Latitude"],
-    "lon": df["Longitude"],
-    "Veículo": df["Veículo"]
-}
-
-
-with colmap:
-    st.map(map_data)
+# with colmap:
+#     st.map(map_data)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
