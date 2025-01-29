@@ -479,7 +479,7 @@ def get_coordinates(city_name):
         return None, None
 
 # Testando com o nome de uma cidade
-city_name = 'São Paulo'
+city_name = df["Destino"]
 latitude, longitude = get_coordinates(city_name)
 
 if latitude and longitude:
