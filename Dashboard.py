@@ -432,15 +432,17 @@ with tab1:
     with card3:
         st.metric("Garagem",f'🟠 {patio}')
 
-with colmap:
-    st.write(df.info())
+
+df
 # -------------------------------------------------------------------------------------
 
 
-map_data = pd.DataFrame({
+
+map_data = {
     "lat": df["Latitude"],
-    "lon": df["Longitude"]
-})
+    "lon": df["Longitude"],
+    "Veículo": df["Veículo"]
+}
 
 
 with colmap:
