@@ -109,6 +109,22 @@ carros_disp = carros_disp["Veículo"].unique()
 carros_disp = carros_disp.shape[0]
 
 
+
+geolocator = Nominatim(user_agent="geoapiExercises")
+
+def get_coordinates(city):
+    location = geolocator.geocode(city)
+    if location:
+        return location.latitude, location.longitude
+    else:
+        return None, None
+
+dados = df["Destino"]
+df = pd.DataFrame(dados)
+df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
+
+df
+
 # -----------------------------------------------------------------------------------------------------------
 # VIAGENS
 
