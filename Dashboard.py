@@ -449,13 +449,7 @@ data = {
 
 
 
-# map_data = pd.DataFrame({
-#     "lat": [-23.5505, -23.5629, -23.5740],
-#     "lon": [-46.6333, -46.6465, -46.6400],
-#     "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"]
-# })
-# with colmap:
-#     st.map(map_data)
+
     
 
 # Instanciando o geolocalizador com um User-Agent
@@ -473,13 +467,19 @@ def get_coordinates(city_name):
 
 
 # Usando apply para adicionar as colunas Latitude e Longitude diretamente ao DataFrame
-df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
-
-# Exibindo o DataFrame final
-st.write(df)
+df[['Lat', 'Lon']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
 
 
+map_data = {
+    "lat": df["Latitude"],
+    "lon": df["Longitude"],
+    "Veículo": df["Veículo"]
+}
+
+
+with colmap:
+    st.map(map_data)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
