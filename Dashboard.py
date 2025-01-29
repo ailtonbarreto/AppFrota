@@ -463,28 +463,28 @@ data = {
 
 
 
-# # Instanciando o geolocalizador com um User-Agent
-# geolocator = Nominatim(user_agent="minha_aplicacao")
+# Instanciando o geolocalizador com um User-Agent
+geolocator = Nominatim(user_agent="minha_aplicacao")
 
-# # Função para obter latitude e longitude a partir do nome da cidade
-# def get_coordinates(city_name):
-#     time.sleep(1)
-#     location = geolocator.geocode(city_name)
+# Função para obter latitude e longitude a partir do nome da cidade
+def get_coordinates(city_name):
+    time.sleep(1)
+    location = geolocator.geocode(city_name)
     
-#     if location:
-#         return location.latitude, location.longitude
-#     else:
-#         return None, None
+    if location:
+        return location.latitude, location.longitude
+    else:
+        return None, None
 
-# # Testando com o nome de uma cidade
+# Testando com o nome de uma cidade
 
-# city_name = df["Destino"]
-# latitude, longitude = get_coordinates(city_name)
+city_name = df["Destino"]
+latitude, longitude = get_coordinates(city_name)
 
-# if latitude and longitude:
-#     st.write(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
-# else:
-#     st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
+if latitude and longitude:
+    st.write(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
+else:
+    st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
 
 df
 
