@@ -433,38 +433,10 @@ with tab1:
         st.metric("Garagem",f'🟠 {patio}')
 
 
-
-
-
-# Simulação de dados da frota
-data = {
-    "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"],
-    "Localização": ["Terminal 1", "Em trânsito", "Terminal 2"],
-    "Motorista": ["Carlos", "Ana", "João"],
-    "Status": ["Disponível", "Em serviço", "Manutenção"],
-    "Consumo (L/100km)": [30, 35, 40]
-}
-
+df
 # -------------------------------------------------------------------------------------
 
 
-# geolocator = Nominatim(user_agent="minha_aplicacao")
-
-# @st.cache_data
-# def get_coordinates(city_name):
-#     time.sleep(2)
-#     location = geolocator.geocode(city_name)
-    
-#     if location:
-#         return location.latitude, location.longitude
-#     else:
-#         return None, None
-
-
-
-# df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
-
-# df
 
 map_data = {
     "lat": df["Latitude"],
