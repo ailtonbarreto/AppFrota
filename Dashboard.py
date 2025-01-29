@@ -446,10 +446,6 @@ map_data = {
 }
 
 
-with colmap:
-    st.map(map_data)
-    
-    
 # Gerando o mapa com pydeck
 deck = pdk.Deck(
     layers=[
@@ -470,8 +466,8 @@ deck = pdk.Deck(
     )
 )
 
-# Exibindo o mapa no Streamlit
-st.pydeck_chart(deck)
+with colmap:
+    st.pydeck_chart(deck,use_container_width=True)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
