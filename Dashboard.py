@@ -436,7 +436,9 @@ with tab1:
 df
 # -------------------------------------------------------------------------------------
 
-
+# Convertendo as colunas para números
+df["Latitude"] = pd.to_numeric(df["Latitude"], errors='coerce')
+df["Longitude"] = pd.to_numeric(df["Longitude"], errors='coerce')
 
 map_data = {
     "lat": df["Latitude"],
