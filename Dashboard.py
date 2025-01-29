@@ -466,8 +466,6 @@ with colmap:
 # Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
-
-
 # Função para obter latitude e longitude a partir do nome da cidade
 def get_coordinates(city_name):
     time.sleep(1)
@@ -479,6 +477,7 @@ def get_coordinates(city_name):
         return None, None
 
 # Testando com o nome de uma cidade
+
 city_name = df["Destino"]
 latitude, longitude = get_coordinates(city_name)
 
@@ -487,6 +486,7 @@ if latitude and longitude:
 else:
     st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
 
+df
 
 
 # ----------------------------------------------------------------------------------
