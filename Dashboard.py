@@ -112,16 +112,18 @@ carros_disp = carros_disp.shape[0]
 
 geolocator = Nominatim(user_agent="geoapiExercises")
 
-def get_coordinates(city):
+import time
+
+def get_coordinates_with_delay(city):
+    time.sleep(1)  # Intervalo de 1 segundo entre requisições
     location = geolocator.geocode(city)
     if location:
         return location.latitude, location.longitude
     else:
         return None, None
 
-dados = df["Destino"]
-df = pd.DataFrame(dados)
-df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
+df[['Latitude', 'Longitude']] = df['Cidade'].apply(lambda x: pd.Series(get_coordinates_with_delay(x)))
+
 
 df = df.dropna()
 
