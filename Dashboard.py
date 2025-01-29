@@ -433,29 +433,12 @@ with tab1:
         st.metric("Garagem",f'🟠 {patio}')
 
 
-
-
-
-# Simulação de dados da frota
-data = {
-    "Veículo": ["Ônibus A", "Ônibus B", "Ônibus C"],
-    "Localização": ["Terminal 1", "Em trânsito", "Terminal 2"],
-    "Motorista": ["Carlos", "Ana", "João"],
-    "Status": ["Disponível", "Em serviço", "Manutenção"],
-    "Consumo (L/100km)": [30, 35, 40]
-}
-
 # -------------------------------------------------------------------------------------
 
 
-
-
-    
-
-# Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
-# Função para obter latitude e longitude a partir do nome da cidade
+
 def get_coordinates(city_name):
     time.sleep(2)  # Intervalo entre requisições
     location = geolocator.geocode(city_name)
@@ -466,9 +449,8 @@ def get_coordinates(city_name):
         return None, None
 
 
-# Usando apply para adicionar as colunas Latitude e Longitude diretamente ao DataFrame
-df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
+df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
 
 map_data = {
