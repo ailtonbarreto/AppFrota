@@ -438,7 +438,7 @@ with tab1:
 
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
-
+@st.cache_data
 def get_coordinates(city_name):
     time.sleep(2)  # Intervalo entre requisições
     location = geolocator.geocode(city_name)
