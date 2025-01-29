@@ -436,6 +436,10 @@ with tab1:
 df.info()
 # -------------------------------------------------------------------------------------
 
+df["Latitude"] = df["Latitude"].replace({"desconhecido": None, "n/a": None})
+df["Longitude"] = df["Longitude"].replace({"desconhecido": None, "n/a": None})
+
+# Agora, converta as colunas para float
 df["Latitude"] = df["Latitude"].astype(float)
 df["Longitude"] = df["Longitude"].astype(float)
 
