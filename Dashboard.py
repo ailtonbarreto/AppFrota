@@ -448,11 +448,13 @@ data = {
 # -------------------------------------------------------------------------------------
 
 
+# Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
+# Função para obter latitude e longitude a partir do nome da cidade
 @st.cache_data
 def get_coordinates(city_name):
-    time.sleep(2)
+    time.sleep(1)  # Intervalo entre requisições
     location = geolocator.geocode(city_name)
     
     if location:
@@ -462,19 +464,16 @@ def get_coordinates(city_name):
 
 
 
+# Obtendo as coordenadas e adicionando as colunas de Latitude e Longitude
 df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
+# Criando o DataFrame para o mapa com latitudes, longitudes e veículos
+map_data = df[['Latitude', 'Longitude', 'Veículo']]
 
-
-map_data = {
-    "lat": df["Latitude"],
-    "lon": df["Longitude"],
-    "Veículo": df["Veículo"]
-}
-
-
-with colmap:
+# Exibindo o mapa no Streamlit
+with st.container():
     st.map(map_data)
+
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
