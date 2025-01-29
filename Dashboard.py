@@ -453,7 +453,7 @@ deck = pdk.Deck(
             "ScatterplotLayer",  # Tipo de camada
             df,  # Dados
             get_position=["Longitude", "Latitude"],  # Coordenadas
-            get_radius=5000,  # Tamanho da bolinha
+            get_radius=50000,  # Tamanho da bolinha
             get_color=[255, 0, 0],  # Cor das bolinhas (vermelho)
             pickable=True  # Permite interação
         )
