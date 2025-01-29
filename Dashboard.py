@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import geopandas as gpd
 from geopy.geocoders import Nominatim
+from datetime import time
 
 # ---------------------------------------------------------------------------------------------
 # layout
@@ -458,13 +459,18 @@ map_data = pd.DataFrame({
 with colmap:
     st.map(map_data)
     
-    from geopy.geocoders import Nominatim
+
+
+
 
 # Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
+
+
 # Função para obter latitude e longitude a partir do nome da cidade
 def get_coordinates(city_name):
+    time.sleep(1)
     location = geolocator.geocode(city_name)
     
     if location:
