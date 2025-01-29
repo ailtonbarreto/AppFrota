@@ -448,16 +448,11 @@ data = {
 # -------------------------------------------------------------------------------------
 
 
-
-
-    
-
-# Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
-# Função para obter latitude e longitude a partir do nome da cidade
+
 def get_coordinates(city_name):
-    time.sleep(1)  # Intervalo entre requisições
+    time.sleep(2)
     location = geolocator.geocode(city_name)
     
     if location:
@@ -466,7 +461,7 @@ def get_coordinates(city_name):
         return None, None
 
 
-# Usando apply para adicionar as colunas Latitude e Longitude diretamente ao DataFrame
+
 df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
 
