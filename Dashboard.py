@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
+import folium
+from streamlit_folium import st_folium
 
 # ---------------------------------------------------------------------------------------------
 # layout
@@ -467,9 +469,6 @@ deck = pdk.Deck(
 )
 
 
-import streamlit as st
-import folium
-from streamlit_folium import st_folium
 
 # Criar um mapa centrado na primeira coordenada da rota
 mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6)
