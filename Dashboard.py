@@ -455,7 +455,7 @@ deck = pdk.Deck(
             "ScatterplotLayer",
             df,  # Dados
             get_position=["Longitude", "Latitude"],
-            get_radius=30000,  # Tamanho da bolinha
+            get_radius=30000,
             get_color=[0, 0, 255],
             pickable=True
         )
@@ -468,7 +468,7 @@ deck = pdk.Deck(
     )
 )
 
-
+# -------------------------------------------------------------------------
 
 # Criar um mapa centrado na primeira coordenada da rota
 mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6)
