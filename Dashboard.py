@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
-import geopandas as gpd
-from geopy.geocoders import Nominatim
-import time
+import pydeck as pdk
 
 # ---------------------------------------------------------------------------------------------
 # layout
@@ -450,6 +448,30 @@ map_data = {
 
 with colmap:
     st.map(map_data)
+    
+    
+# Gerando o mapa com pydeck
+deck = pdk.Deck(
+    layers=[
+        pdk.Layer(
+            "ScatterplotLayer",  # Tipo de camada
+            df,  # Dados
+            get_position=["Longitude", "Latitude"],  # Coordenadas
+            get_radius=500,  # Tamanho da bolinha
+            get_color=[255, 0, 0],  # Cor das bolinhas (vermelho)
+            pickable=True  # Permite interação
+        )
+    ],
+    initial_view_state=pdk.ViewState(
+        latitude=df["Latitude"].mean(),
+        longitude=df["Longitude"].mean(),
+        zoom=6,
+        pitch=0
+    )
+)
+
+# Exibindo o mapa no Streamlit
+st.pydeck_chart(deck)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
