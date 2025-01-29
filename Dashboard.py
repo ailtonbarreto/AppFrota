@@ -432,8 +432,8 @@ with tab1:
     with card3:
         st.metric("Garagem",f'🟠 {patio}')
 
-
-df
+with colmap:
+    st.write(df.info())
 # -------------------------------------------------------------------------------------
 
 
