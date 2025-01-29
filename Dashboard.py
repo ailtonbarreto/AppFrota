@@ -448,33 +448,33 @@ data = {
 # -------------------------------------------------------------------------------------
 
 
-geolocator = Nominatim(user_agent="minha_aplicacao")
+# geolocator = Nominatim(user_agent="minha_aplicacao")
 
-@st.cache_data
-def get_coordinates(city_name):
-    time.sleep(2)
-    location = geolocator.geocode(city_name)
+# @st.cache_data
+# def get_coordinates(city_name):
+#     time.sleep(2)
+#     location = geolocator.geocode(city_name)
     
-    if location:
-        return location.latitude, location.longitude
-    else:
-        return None, None
+#     if location:
+#         return location.latitude, location.longitude
+#     else:
+#         return None, None
 
 
 
-df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
+# df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
-df
+# df
 
-# map_data = {
-#     "lat": df["Latitude"],
-#     "lon": df["Longitude"],
-#     "Veículo": df["Veículo"]
-# }
+map_data = {
+    "lat": df["Latitude"],
+    "lon": df["Longitude"],
+    "Veículo": df["Veículo"]
+}
 
 
-# with colmap:
-#     st.map(map_data)
+with colmap:
+    st.map(map_data)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
