@@ -477,9 +477,9 @@ city_name = 'São Paulo'
 latitude, longitude = get_coordinates(city_name)
 
 if latitude and longitude:
-    print(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
+    st.write(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
 else:
-    print(f"Não foi possível encontrar as coordenadas para {city_name}.")
+    st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
 
 
 
