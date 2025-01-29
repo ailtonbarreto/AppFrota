@@ -447,8 +447,6 @@ data = {
 
 # -------------------------------------------------------------------------------------
 
-# df = pd.DataFrame(data)
-
 
 
 # map_data = pd.DataFrame({
@@ -492,7 +490,7 @@ for city_name in city_names:
 # Você pode armazenar as coordenadas no DataFrame ou usá-las conforme necessário
 coordinates_df = pd.DataFrame(coordinates, columns=["Cidade", "Latitude", "Longitude"])
 
-df
+# df["lat"] = 
 
 
 # ----------------------------------------------------------------------------------
