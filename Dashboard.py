@@ -109,43 +109,6 @@ carros_disp = carros_disp["Veículo"].unique()
 carros_disp = carros_disp.shape[0]
 
 
-
-import pandas as pd
-from geopy.geocoders import Nominatim
-import geopandas as gpd
-import matplotlib.pyplot as plt
-
-# Lista de cidades
-cities = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte']
-
-# Instanciando o geolocalizador
-geolocator = Nominatim(user_agent="geoapiExercises")
-
-# Função para obter latitude e longitude de uma cidade
-def get_coordinates(city):
-    location = geolocator.geocode(city)
-    if location:
-        return location.latitude, location.longitude
-    else:
-        return None, None
-
-# Criando um DataFrame com as cidades e suas coordenadas
-data = {'Cidade': cities}
-df = pd.DataFrame(data)
-df[['Latitude', 'Longitude']] = df['Cidade'].apply(lambda x: pd.Series(get_coordinates(x)))
-
-# Remover cidades que não puderam ser geolocalizadas
-df = df.dropna()
-
-# Convertendo para um GeoDataFrame
-gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude))
-
-# Plotando o mapa
-gdf.plot(marker='o', color='red', markersize=50)
-plt.title('Mapa de Cidades')
-plt.show()
-
-
 # -----------------------------------------------------------------------------------------------------------
 # VIAGENS
 
@@ -494,6 +457,30 @@ map_data = pd.DataFrame({
 })
 with colmap:
     st.map(map_data)
+    
+    from geopy.geocoders import Nominatim
+
+# Instanciando o geolocalizador com um User-Agent
+geolocator = Nominatim(user_agent="minha_aplicacao")
+
+# Função para obter latitude e longitude a partir do nome da cidade
+def get_coordinates(city_name):
+    location = geolocator.geocode(city_name)
+    
+    if location:
+        return location.latitude, location.longitude
+    else:
+        return None, None
+
+# Testando com o nome de uma cidade
+city_name = 'São Paulo'
+latitude, longitude = get_coordinates(city_name)
+
+if latitude and longitude:
+    print(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
+else:
+    print(f"Não foi possível encontrar as coordenadas para {city_name}.")
+
 
 
 # ----------------------------------------------------------------------------------
