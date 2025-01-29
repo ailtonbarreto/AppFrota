@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import geopandas as gpd
 from geopy.geocoders import Nominatim
-from datetime import time
+import time
 
 # ---------------------------------------------------------------------------------------------
 # layout
