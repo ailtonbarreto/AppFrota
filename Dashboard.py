@@ -467,27 +467,27 @@ deck = pdk.Deck(
 )
 
 
+import streamlit as st
+import folium
+from streamlit_folium import st_folium
 
-# deck = pdk.Deck(
-#     layers=[
-#         pdk.Layer(
-#             "LineLayer",  # Tipo de camada (linha)
-#             df,  # Dados (latitude e longitude)
-#             get_source_position=["Longitude", "Latitude"],  # Posição de origem da linha
-#             get_target_position=["Longitude", "Latitude"],  # Posição de destino da linha
-#             get_color=[0, 0, 255],  # Cor das linhas (azul)
-#             get_width=5,  # Largura da linha
-#             pickable=True  # Permite interação com as linhas
-#         )
-#     ],
-#     initial_view_state=pdk.ViewState(
-#         latitude=df["Latitude"].mean(),
-#         longitude=df["Longitude"].mean(),
-#         zoom=6,
-#         pitch=0
-#     )
-# )
+# Criar um mapa centrado na primeira coordenada da rota
+mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6)
 
+# Lista de coordenadas representando a rota
+rota = [
+    [-23.5673865, -46.6333],
+    [-22.0154, -43.1729],
+    [-20.536097, -49.2730],
+    [-22.73172683, -45.6723],
+    [-25.432956, -47.3989]
+]
+
+# Adicionar a rota ao mapa
+folium.PolyLine(rota, color="blue", weight=5).add_to(mapa)
+
+# Exibir o mapa no Streamlit
+st_folium(mapa, width=700, height=500)
 
 
 with colmap:
