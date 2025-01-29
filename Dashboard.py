@@ -454,7 +454,7 @@ deck = pdk.Deck(
             df,  # Dados
             get_position=["Longitude", "Latitude"],  # Coordenadas
             get_radius=30000,  # Tamanho da bolinha
-            get_color=[255, 0, 0],  # Cor das bolinhas (vermelho)
+            get_color=[0, 0, 255],  # Cor das bolinhas (vermelho)
             pickable=True  # Permite interação
         )
     ],
