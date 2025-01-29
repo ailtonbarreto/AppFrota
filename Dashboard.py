@@ -467,7 +467,7 @@ def get_coordinates(city_name):
 
 
 # Usando apply para adicionar as colunas Latitude e Longitude diretamente ao DataFrame
-df[['Lat', 'Lon']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
+df[['Latitude', 'Longitude']] = df['Destino'].apply(lambda x: pd.Series(get_coordinates(x)))
 
 
 
