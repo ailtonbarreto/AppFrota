@@ -461,14 +461,12 @@ data = {
     
 
 
-
-
 # Instanciando o geolocalizador com um User-Agent
 geolocator = Nominatim(user_agent="minha_aplicacao")
 
 # Função para obter latitude e longitude a partir do nome da cidade
 def get_coordinates(city_name):
-    time.sleep(1)
+    time.sleep(1)  # Intervalo entre requisições
     location = geolocator.geocode(city_name)
     
     if location:
@@ -476,15 +474,23 @@ def get_coordinates(city_name):
     else:
         return None, None
 
-# Testando com o nome de uma cidade
+# Supondo que 'df' seja o DataFrame com a coluna "Destino" que contém os nomes das cidades
+city_names = df["Destino"]  # Obtendo a coluna com os nomes das cidades
 
-city_name = df["Destino"]
-latitude, longitude = get_coordinates(city_name)
+# Iterando sobre as cidades e obtendo suas coordenadas
+coordinates = []
+for city_name in city_names:
+    latitude, longitude = get_coordinates(city_name)
+    
+    if latitude and longitude:
+        coordinates.append((city_name, latitude, longitude))
+        st.write(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
+    else:
+        coordinates.append((city_name, None, None))
+        st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
 
-if latitude and longitude:
-    st.write(f"A latitude de {city_name} é {latitude} e a longitude é {longitude}.")
-else:
-    st.write(f"Não foi possível encontrar as coordenadas para {city_name}.")
+# Você pode armazenar as coordenadas no DataFrame ou usá-las conforme necessário
+coordinates_df = pd.DataFrame(coordinates, columns=["Cidade", "Latitude", "Longitude"])
 
 df
 
