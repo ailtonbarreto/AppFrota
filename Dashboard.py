@@ -443,12 +443,12 @@ df["Longitude"] = df["Longitude"].astype(float)
 
 # -------------------------------------------------------------------------------------
 
-df["LatitudeD"] = df["LatitudeD"].str.replace(",", ".", regex=False)
-df["LongitudeD"] = df["LongitudeD"].str.replace(",", ".", regex=False)
+# df["LatitudeD"] = df["LatitudeD"].str.replace(",", ".", regex=False)
+# df["LongitudeD"] = df["LongitudeD"].str.replace(",", ".", regex=False)
 
 
-df["LatitudeD"] = df["LatitudeD"].astype(float)
-df["LongitudeD"] = df["LongitudeD"].astype(float)
+# df["LatitudeD"] = df["LatitudeD"].astype(float)
+# df["LongitudeD"] = df["LongitudeD"].astype(float)
 
 # -------------------------------------------------------------------------------------
 
