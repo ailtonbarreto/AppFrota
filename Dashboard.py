@@ -456,7 +456,7 @@ with colmap:
     carro = st.selectbox("Carro",df_Veiculos)
     df_filtrado = df.query('Veículo == @carro')
 
-mapa = folium.Map(location=[-23.567, -46.633], zoom_start=3,tiles="CartoDB Dark_Matter")
+mapa = folium.Map(location=[-23.567, -46.633], zoom_start=7,tiles="CartoDB Dark_Matter")
 
 
 
