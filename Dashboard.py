@@ -469,8 +469,8 @@ for lat, lon in rota:
 
 # -------------------------------------------------------------------------
 
-# with colmap:
-    st.write(st_folium(mapa, width=700, height=500))
+with colmap:
+    st_folium(mapa, width=700, height=500)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
