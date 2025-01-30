@@ -44,14 +44,9 @@ frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyy
 # ---------------------------------------------------------------------------------------------
 # layout
 
-tab1, tab2 = st.tabs(["Disponibilidade","Formulário"])
+tab1, = st.tabs("Disponibilidade")
 
     
-with tab2:
-    st.subheader("Link Para Preencher",anchor=False)
-    st.image("img/qr.png")
-
-
 
 # ---------------------------------------------------------------------------------------------
 # Dataframe viagens
