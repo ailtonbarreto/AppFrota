@@ -470,7 +470,7 @@ for lat, lon in rota:
 # -------------------------------------------------------------------------
 
 with colmap:
-    st_folium(mapa, width=700, height=500)
+    st_folium(mapa, use_container_width=True, height=500)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
