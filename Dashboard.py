@@ -44,7 +44,7 @@ frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyy
 # ---------------------------------------------------------------------------------------------
 # layout
 
-tab1, = st.container("Disponibilidade")
+tab1, tab2 = st.tabs(["Disponibilidade","Acompamhamento"])
 
 
 
