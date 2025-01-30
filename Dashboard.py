@@ -441,36 +441,38 @@ df["Latitude"] = df["Latitude"].astype(float)
 df["Longitude"] = df["Longitude"].astype(float)
 
 
-map_data = {
-    "lat": df["Latitude"],
-    "lon": df["Longitude"],
-    "Veículo": df["Veículo"]
-}
+# map_data = {
+#     "lat": df["Latitude"],
+#     "lon": df["Longitude"],
+#     "Veículo": df["Veículo"]
+# }
 
 
-# Gerando o mapa com pydeck
-deck = pdk.Deck(
-    layers=[
-        pdk.Layer(
-            "ScatterplotLayer",
-            df,  # Dados
-            get_position=["Longitude", "Latitude"],
-            get_radius=30000,
-            get_color=[0, 0, 255],
-            pickable=True
-        )
-    ],
-    initial_view_state=pdk.ViewState(
-        latitude=df["Latitude"].mean(),
-        longitude=df["Longitude"].mean(),
-        zoom=6,
-        pitch=0
-    )
-)
+# # Gerando o mapa com pydeck
+# deck = pdk.Deck(
+#     layers=[
+#         pdk.Layer(
+#             "ScatterplotLayer",
+#             df,  # Dados
+#             get_position=["Longitude", "Latitude"],
+#             get_radius=30000,
+#             get_color=[0, 0, 255],
+#             pickable=True
+#         )
+#     ],
+#     initial_view_state=pdk.ViewState(
+#         latitude=df["Latitude"].mean(),
+#         longitude=df["Longitude"].mean(),
+#         zoom=6,
+#         pitch=0
+#     )
+# )
 
-# -------------------------------------------------------------------------
+import streamlit as st
+import folium
+from streamlit_folium import st_folium
 
-# Criar um mapa centrado na primeira coordenada da rota
+# Criar um mapa centrado na primeira coordenada
 mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6)
 
 # Lista de coordenadas representando a rota
@@ -482,12 +484,33 @@ rota = [
     [-25.432956, -47.3989]
 ]
 
-# Adicionar a rota ao mapa
-folium.PolyLine(rota, color="blue", weight=5).add_to(mapa)
+# Adicionar a linha da rota no mapa
+folium.PolyLine(rota, color="blue", weight=5, opacity=0.7).add_to(mapa)
+
+# Adicionar marcadores nos pontos da rota
+for lat, lon in rota:
+    folium.Marker([lat, lon]).add_to(mapa)
 
 # Exibir o mapa no Streamlit
 st_folium(mapa, width=700, height=500)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -------------------------------------------------------------------------
 
 with colmap:
     st.pydeck_chart(deck,use_container_width=True)
