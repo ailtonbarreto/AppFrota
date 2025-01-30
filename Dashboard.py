@@ -450,7 +450,9 @@ mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_
 rota = [
     [-23.5673865, -46.6333],
     [-22.0154, -43.1729],
-
+    [-20.536097, -49.2730],
+    [-22.73172683, -45.6723],
+    [ -25.4284, -49.2733]
 ]
 
 # Adicionar a linha da rota no mapa
@@ -461,20 +463,6 @@ for lat, lon in rota:
     folium.Marker([lat, lon]).add_to(mapa)
 
 # Exibir o mapa no Streamlit
-st_folium(mapa, width=700, height=500)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -482,7 +470,7 @@ st_folium(mapa, width=700, height=500)
 # -------------------------------------------------------------------------
 
 # with colmap:
-#     st.pydeck_chart(deck,use_container_width=True)
+    st.write(st_folium(mapa, width=700, height=500))
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
