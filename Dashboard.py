@@ -449,6 +449,7 @@ mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_
 # Lista de coordenadas representando a rota
 rota = [
     [-23.5673865, -46.6333],
+    [-22.0154, -43.1729],
 
 ]
 
