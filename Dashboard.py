@@ -458,13 +458,9 @@ rota = [
 # Adicionar a linha da rota no mapa
 folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
 
-# Adicionar marcadores nos pontos da rota
+
 for lat, lon in rota:
-    folium.Marker([lat, lon]).add_to(mapa)
-
-# Exibir o mapa no Streamlit
-
-
+    folium.Marker([lat, lon],icon=folium.Icon(color="#575655")).add_to(mapa)
 
 
 # -------------------------------------------------------------------------
