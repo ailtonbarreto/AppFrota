@@ -509,8 +509,8 @@ st_folium(mapa, width=700, height=500)
 
 # -------------------------------------------------------------------------
 
-with colmap:
-    st.pydeck_chart(deck,use_container_width=True)
+# with colmap:
+#     st.pydeck_chart(deck,use_container_width=True)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
