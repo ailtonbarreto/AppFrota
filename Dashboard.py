@@ -470,7 +470,7 @@ df["Longitude"] = df["Longitude"].astype(float)
 
 
 # Criar um mapa centrado na primeira coordenada
-mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6)
+mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_Matter")
 
 # Lista de coordenadas representando a rota
 rota = [
