@@ -469,7 +469,7 @@ mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_
 rota = [df["LatitudeD"],df["LongitudeD"]]
 
 # Adicionar a linha da rota no mapa
-folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
+folium.PolyLine(rota, weight=5, opacity=0.7).add_to(mapa)
 
 
 for lat, lon in rota:
