@@ -452,7 +452,7 @@ df["Longitude"] = df["Longitude"].astype(float)
 
 # -------------------------------------------------------------------------------------
 
-
+df
 # Criar um mapa centrado na primeira coordenada
 mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_Matter")
 
