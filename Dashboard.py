@@ -471,6 +471,7 @@ for lat, lon in rota:
 # -------------------------------------------------------------------------
 
 with colmap:
+    carro = st.selectbox("Carro",df_Veiculos)
     st_folium(mapa, use_container_width=True, height=500)
 
 # ----------------------------------------------------------------------------------
