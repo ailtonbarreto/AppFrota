@@ -128,7 +128,7 @@ with tab1:
     
     st.divider()
     
-    st.subheader("Geolocalização",anchor=False)
+    st.subheader("Linhas",anchor=False)
     
     colmap,  = st.columns(1)
 
