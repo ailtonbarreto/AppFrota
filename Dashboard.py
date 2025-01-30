@@ -452,13 +452,15 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 
 # -------------------------------------------------------------------------------------
 
-df
+with colmap:
+    carro = st.selectbox("Carro",df_Veiculos)
+    df_filtrado = df.query('Veículo == @carro')
 
 mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_Matter")
 
 
 
-rota = list(zip(df["Latitude"], df["Longitude"])) + list(zip(df["LatitudeD"], df["LongitudeD"]))
+rota = list(zip(df_filtrado["Latitude"], df_filtrado["Longitude"])) + list(zip(df_filtrado["LatitudeD"], df_filtrado["LongitudeD"]))
 
 
 folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
@@ -471,7 +473,6 @@ for lat, lon in rota:
 # -------------------------------------------------------------------------
 
 with colmap:
-    carro = st.selectbox("Carro",df_Veiculos)
     st_folium(mapa, use_container_width=True, height=500)
 
 # ----------------------------------------------------------------------------------
