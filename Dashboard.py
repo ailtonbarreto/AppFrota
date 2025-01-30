@@ -456,7 +456,7 @@ rota = [
 ]
 
 # Adicionar a linha da rota no mapa
-folium.PolyLine(rota, color="#292929", weight=5, opacity=0.7).add_to(mapa)
+folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
 
 # Adicionar marcadores nos pontos da rota
 for lat, lon in rota:
