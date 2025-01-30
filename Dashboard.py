@@ -441,32 +441,6 @@ df["Latitude"] = df["Latitude"].astype(float)
 df["Longitude"] = df["Longitude"].astype(float)
 
 
-# map_data = {
-#     "lat": df["Latitude"],
-#     "lon": df["Longitude"],
-#     "Veículo": df["Veículo"]
-# }
-
-
-# # Gerando o mapa com pydeck
-# deck = pdk.Deck(
-#     layers=[
-#         pdk.Layer(
-#             "ScatterplotLayer",
-#             df,  # Dados
-#             get_position=["Longitude", "Latitude"],
-#             get_radius=30000,
-#             get_color=[0, 0, 255],
-#             pickable=True
-#         )
-#     ],
-#     initial_view_state=pdk.ViewState(
-#         latitude=df["Latitude"].mean(),
-#         longitude=df["Longitude"].mean(),
-#         zoom=6,
-#         pitch=0
-#     )
-# )
 
 
 # Criar um mapa centrado na primeira coordenada
@@ -482,7 +456,7 @@ rota = [
 ]
 
 # Adicionar a linha da rota no mapa
-folium.PolyLine(rota, color="#ffffff", weight=5, opacity=0.7).add_to(mapa)
+folium.PolyLine(rota, color="#292929", weight=5, opacity=0.7).add_to(mapa)
 
 # Adicionar marcadores nos pontos da rota
 for lat, lon in rota:
