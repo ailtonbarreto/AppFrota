@@ -466,7 +466,9 @@ rota = [
 ]
 
 
-# rota = [df["LatitudeD"],df["LongitudeD"]]
+rota = [df["Latitude"],df["Longitude"],
+        df["LatitudeD"],df["LongitudeD"]
+        ]
 
 # Adicionar a linha da rota no mapa
 folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
