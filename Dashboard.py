@@ -460,7 +460,7 @@ folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
 
 
 for lat, lon in rota:
-    folium.Marker([lat, lon],icon=folium.Icon(color="#575655")).add_to(mapa)
+    folium.Marker([lat, lon],icon=folium.Icon(color="lightblue")).add_to(mapa)
 
 
 # -------------------------------------------------------------------------
