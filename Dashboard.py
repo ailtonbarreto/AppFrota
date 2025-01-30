@@ -432,6 +432,7 @@ with tab1:
     with card3:
         st.metric("Garagem",f'🟠 {patio}')
 
+# -------------------------------------------------------------------------------------
 
 df["Latitude"] = df["Latitude"].str.replace(",", ".", regex=False)
 df["Longitude"] = df["Longitude"].str.replace(",", ".", regex=False)
