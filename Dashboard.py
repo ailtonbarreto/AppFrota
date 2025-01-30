@@ -457,19 +457,19 @@ df
 mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_Matter")
 
 # Lista de coordenadas representando a rota
-# rota = [
-#     [-23.5673865, -46.6333],
-#     [-22.0154, -43.1729],
-#     [-20.536097, -49.2730],
-#     [-22.73172683, -45.6723],
-#     [ -25.4284, -49.2733]
-# ]
+rota = [
+    [-23.5673865, -46.6333],
+    [-22.0154, -43.1729],
+    [-20.536097, -49.2730],
+    [-22.73172683, -45.6723],
+    [ -25.4284, -49.2733]
+]
 
 
-rota = [df["LatitudeD"],df["LongitudeD"]]
+# rota = [df["LatitudeD"],df["LongitudeD"]]
 
 # Adicionar a linha da rota no mapa
-folium.PolyLine(rota, weight=5, opacity=0.7).add_to(mapa)
+folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
 
 
 for lat, lon in rota:
