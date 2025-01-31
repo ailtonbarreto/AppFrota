@@ -472,7 +472,11 @@ tooltip = {
 
 
 with colmap:
-    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state),tooltip= tooltip)
+    st.pydeck_chart(pdk.Deck(
+        layers=[layer],
+        initial_view_state=view_state,
+        tooltip=tooltip  # Define o tooltip no mapa
+    ))
     
 with coldf:
     st.write("Frota")
