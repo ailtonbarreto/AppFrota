@@ -453,6 +453,9 @@ with colmap:
     
 mapa = df_filtrado["Latitude","Longitude"]
 
+mapa = df_filtrado.loc[:, ["Latitude", "Longitude"]]  # Outra forma correta!
+
+
 # mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_Matter")
 
 
