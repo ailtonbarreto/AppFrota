@@ -125,7 +125,7 @@ with tab1:
     
     st.subheader("Linhas",anchor=False)
     
-    colmap,  = st.columns(1)
+    colmap, colside  = st.columns(2)
 
     df_carro = df.query('Veículo == "Veículo A"')
 
