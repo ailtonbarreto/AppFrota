@@ -464,8 +464,15 @@ view_state = pdk.ViewState(
     zoom=4,
     pitch=0
 )
+
+tooltip = {
+    "html": "<b>Local:</b> {Origem} <br><b>Lat:</b> {Latitude} <br><b>Lon:</b> {Longitude}",
+    "style": {"backgroundColor": "black", "color": "white"}
+}
+
+
 with colmap:
-    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
+    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state),tooltip= tooltip)
     
 with coldf:
     st.write("Frota")
