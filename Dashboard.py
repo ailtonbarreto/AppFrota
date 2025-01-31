@@ -461,7 +461,7 @@ layer = pdk.Layer(
 view_state = pdk.ViewState(
     latitude=df["Latitude"].mean(),
     longitude=df["Longitude"].mean(),
-    zoom=5,
+    zoom=4,
     pitch=0
 )
 with colmap:
