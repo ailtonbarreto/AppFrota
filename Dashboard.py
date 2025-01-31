@@ -124,7 +124,7 @@ with tab1:
     
     st.subheader("Linhas",anchor=False)
     
-    colmap, colside  = st.columns(2)
+    colmap, coldf  = st.columns(2)
 
     df_carro = df.query('Veículo == "Veículo A"')
 
@@ -466,7 +466,10 @@ view_state = pdk.ViewState(
 )
 with colmap:
     st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
-
+    
+with coldf:
+    st.write("Frota")
+    st.dataframe(df,use_container_width=True)
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
