@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
-import folium
-from streamlit_folium import st_folium
+
 
 # ---------------------------------------------------------------------------------------------
 # layout
@@ -453,32 +452,27 @@ with colmap:
     
 mapa = df_filtrado[["Latitude", "Longitude"]] 
 
-mapa = mapa.rename(columns={"Latitude": "lat", "Longitude": "lon"})
+
+layer = pdk.Layer(
+    "ScatterplotLayer",  # Tipo do layer
+    df_filtrado,  # DataFrame com dados
+    get_position=["Longitude", "Latitude"],  # Ordem: Lon, Lat
+    get_radius=50000,  # Tamanho do ponto (Aumente para ver maior)
+    get_fill_color=[0, 122, 255, 160],  # Azul (RGBA)
+    opacity=0.8,
+    pickable=True
+)
 
 
-
-
-
-
-# mapa = folium.Map(location=[-23.567, -46.633], zoom_start=6,tiles="CartoDB Dark_Matter")
-
-
-
-# rota = list(zip(df_filtrado["Latitude"], df_filtrado["Longitude"])) + list(zip(df_filtrado["LatitudeD"], df_filtrado["LongitudeD"]))
-
-
-# folium.PolyLine(rota, color="#575655", weight=5, opacity=0.7).add_to(mapa)
-
-
-# for lat, lon in rota:
-#     folium.Marker([lat, lon],icon=folium.Icon(color="darkblue")).add_to(mapa)
-
-
-# -------------------------------------------------------------------------
-
+view_state = pdk.ViewState(
+    latitude=df_filtrado["Latitude"].mean(),
+    longitude=df_filtrado["Longitude"].mean(),
+    zoom=5,
+    pitch=0
+)
 with colmap:
-    # st_folium(mapa, use_container_width=True, height=500)
-    st.map(mapa)
+    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
+
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
