@@ -454,7 +454,7 @@ with colmap:
 
 layer = pdk.Layer(
     "ScatterplotLayer",  # Tipo do layer
-    df_filtrado,  # DataFrame com dados
+    df,  # DataFrame com dados
     get_position=["Longitude", "Latitude"],  # Ordem: Lon, Lat
     get_radius=50000,  # Tamanho do ponto (Aumente para ver maior)
     get_fill_color=[0, 122, 255, 160],  # Azul (RGBA)
