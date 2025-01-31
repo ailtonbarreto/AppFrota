@@ -450,7 +450,6 @@ with colmap:
     carro = st.selectbox("Carro",df_Veiculos)
     df_filtrado = df.query('Veículo == @carro')
     
-mapa = df_filtrado[["Latitude", "Longitude"]] 
 
 
 layer = pdk.Layer(
