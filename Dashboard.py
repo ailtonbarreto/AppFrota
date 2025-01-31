@@ -453,6 +453,10 @@ with colmap:
     
 mapa = df_filtrado[["Latitude", "Longitude"]] 
 
+mapa = mapa.rename(columns={"Latitude": "lat", "Longitude": "lon"})
+
+
+
 
 
 
