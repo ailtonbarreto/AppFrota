@@ -446,11 +446,6 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 
 # -------------------------------------------------------------------------------------
 
-with colmap:
-    carro = st.selectbox("Carro",df_Veiculos)
-    df_filtrado = df.query('Veículo == @carro')
-    
-
 
 layer = pdk.Layer(
     "ScatterplotLayer",  # Tipo do layer
@@ -464,8 +459,8 @@ layer = pdk.Layer(
 
 
 view_state = pdk.ViewState(
-    latitude=df_filtrado["Latitude"].mean(),
-    longitude=df_filtrado["Longitude"].mean(),
+    latitude=df["Latitude"].mean(),
+    longitude=df["Longitude"].mean(),
     zoom=5,
     pitch=0
 )
