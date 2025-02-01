@@ -407,7 +407,7 @@ with card2:
     st.metric("Estrada", f'🟢 {rua}')
 
 with card5:
-    st.metric("QTDMotoristas", f'👨‍✈️ {qtd_motoristas}')
+    st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
 
 with card4:
     st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
