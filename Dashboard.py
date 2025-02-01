@@ -548,7 +548,7 @@ with st.container():
         initial_view_state=view_state,
         tooltip=tooltip
     ))
-
+df
 # ----------------------------------------------------------------------------------
 #atualizar dados
 
