@@ -477,6 +477,20 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 saida_df = df[df['Tipo'] == 'Saída']
 entrada_df = df[df['Tipo'] == 'Entrada']
 
+
+color_map = {
+    "Veículo A": "#FF0000",  # Vermelho
+    "Veículo B": "#00FF00",  # Verde
+    "Veículo C": "#0000FF",  # Azul
+    "Veículo D": "#FFFF00",  # Amarelo
+    "Veículo E": "#FF00FF",  # Magenta
+    "Veículo F": "#00FFFF",  # Ciano
+    "Veículo G": "#FFA500",  # Laranja
+    "Veículo H": "#800080",  # Roxo
+    "Veículo I": "#A52A2A",  # Marrom
+    "Veículo J": "#808080",  # Cinza
+}
+
 # Criando a camada de pontos de Saída
 saida_layer = pdk.Layer(
     "ScatterplotLayer",
