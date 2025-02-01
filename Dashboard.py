@@ -455,7 +455,7 @@ view_state = pdk.ViewState(
 )
 
 tooltip = {
-    "html": "{Veículo} - {Origem}",
+    "html": "{Veículo} - {Origem} ➡️ {Destino}",
     "style": {"backgroundColor": "black", "color": "white"}
 }
 
