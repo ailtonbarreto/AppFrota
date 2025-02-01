@@ -469,7 +469,7 @@ with colmap:
     
 with coldf:
     st.write("Frota")
-    df = df[["Veículo","Origem","Destino","Motorista"]]
+    df = df[["Veículo","Origem","Tioi","Destino","Motorista"]]
     st.dataframe(df,use_container_width=True,hide_index=True)
 
 
