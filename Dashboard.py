@@ -483,7 +483,7 @@ saida_layer = pdk.Layer(
     saida_df,
     get_position=["Longitude", "Latitude"],
     get_radius=20000,
-    get_fill_color=[255, 0, 0, 160],  # Cor vermelha para saída
+    get_fill_color= "color",  # Cor vermelha para saída
     opacity=0.8,
     pickable=True
 )
@@ -494,7 +494,7 @@ entrada_layer = pdk.Layer(
     entrada_df,
     get_position=["LongitudeD", "LatitudeD"],
     get_radius=20000,
-    get_fill_color=[0, 255, 0, 160],  # Cor verde para entrada
+    get_fill_color= "color",  # Cor verde para entrada
     opacity=0.8,
     pickable=True
 )
