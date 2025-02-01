@@ -489,7 +489,7 @@ origin_layer = pdk.Layer(
 # Defina a camada para o ponto de destino
 destination_layer = pdk.Layer(
     "ScatterplotLayer",
-    df[df["Tipo"] == "Destino"],  # Filtrando os destinos
+    df[df["Tipo"] == "Entrada"],  # Filtrando os destinos
     get_position=["LongitudeD", "LatitudeD"],
     get_radius=20000,
     get_fill_color=[0, 255, 0, 160],  # Cor verde para destino
