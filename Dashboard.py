@@ -472,43 +472,45 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 #     st.dataframe(df,use_container_width=True)
 
 # ----------------------------------------------------------------------------------------
-# Supondo que 'df' já esteja carregado com as informações
-# Vamos criar duas camadas: uma para a origem e outra para o destino
 
-# Defina a camada para o ponto de origem
-origin_layer = pdk.Layer(
+# Filtrando os dados para Saídas e Entradas
+saida_df = df[df['Tipo:'] == 'Saída']
+entrada_df = df[df['Tipo:'] == 'Entrada']
+
+# Criando a camada de pontos de Saída
+saida_layer = pdk.Layer(
     "ScatterplotLayer",
-    df[df["Tipo"] == "Origem"],  # Filtrando as origens
+    saida_df,
     get_position=["Longitude", "Latitude"],
     get_radius=20000,
-    get_fill_color=[255, 0, 0, 160],  # Cor vermelha para origem
+    get_fill_color=[255, 0, 0, 160],  # Cor vermelha para saída
     opacity=0.8,
     pickable=True
 )
 
-# Defina a camada para o ponto de destino
-destination_layer = pdk.Layer(
+# Criando a camada de pontos de Entrada
+entrada_layer = pdk.Layer(
     "ScatterplotLayer",
-    df[df["Tipo"] == "Entrada"],  # Filtrando os destinos
+    entrada_df,
     get_position=["LongitudeD", "LatitudeD"],
     get_radius=20000,
-    get_fill_color=[0, 255, 0, 160],  # Cor verde para destino
+    get_fill_color=[0, 255, 0, 160],  # Cor verde para entrada
     opacity=0.8,
     pickable=True
 )
 
-# Definindo a camada de linha entre origem e destino (se necessário)
-line_layer = pdk.Layer(
+# Adicionando linha de origem -> destino (Se necessário)
+path_layer = pdk.Layer(
     "PathLayer",
-    df[df["Tipo"] == "Saída"],  # Filtrando as origens
-    get_path="path",  # Você precisa criar uma coluna 'path' com as coordenadas de origem e destino
+    pd.concat([saida_df, entrada_df]),  # Combina as saídas e entradas para as linhas
+    get_path="path",  # Aqui você precisa adicionar a lógica para gerar a linha de origem a destino
     get_width=5,
     get_color=[0, 122, 255, 160],
     opacity=0.8,
     pickable=True
 )
 
-# Definindo o estado de visão inicial (view_state)
+# Estado da visão do mapa
 view_state = pdk.ViewState(
     latitude=df["Latitude"].mean(),
     longitude=df["Longitude"].mean(),
@@ -516,22 +518,20 @@ view_state = pdk.ViewState(
     pitch=0
 )
 
-# Definindo o tooltip com as informações do veículo, origem e destino
+# Tooltip para mostrar informações no mapa
 tooltip = {
-    "html": "{Veículo} - {Origem} ➝ {Destino}",
+    "html": "{Veículo:} - {Origem} ➝ {Destino}",
     "style": {"backgroundColor": "black", "color": "white"}
 }
 
-# Renderizando o mapa no Streamlit
+# Exibindo o mapa no Streamlit
 with st.container():
     st.write("Localização")
     st.pydeck_chart(pdk.Deck(
-        layers=[origin_layer, destination_layer, line_layer],  # Adicionando as 3 camadas
+        layers=[saida_layer, entrada_layer, path_layer],  # Incluindo as camadas
         initial_view_state=view_state,
         tooltip=tooltip
     ))
-
-
 
 # ----------------------------------------------------------------------------------
 #atualizar dados
