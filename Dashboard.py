@@ -40,12 +40,6 @@ df = df.rename(columns={"Veículo:": "Veículo"})
 
 frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyyDxbdLpevKT3lP0-5afw/viewform?embedded=true'
 
-# ---------------------------------------------------------------------------------------------
-# layout
-
-tab1, tab2 = st.tabs(["Disponibilidade","Acompamhamento"])
-
-
 
 # ---------------------------------------------------------------------------------------------
 # Dataframe viagens
@@ -107,171 +101,171 @@ carros_disp = carros_disp.shape[0]
 # -----------------------------------------------------------------------------------------------------------
 # VIAGENS
 
-with tab1:
 
-    card1, card2, card3, card4, card5 = st.columns(5)
+
+card1, card2, card3, card4, card5 = st.columns(5)
     
-    st.divider()
+st.divider()
     
-    st.subheader("Disponibilidade da Frota", anchor=False)
+st.subheader("Disponibilidade da Frota", anchor=False)
     
-    # carro A status
+# carro A status
   
-    carda, cardb, cardc, cardd, carde = st.columns(5)
-    cardf, cardg, cardh, cardi, cardj = st.columns(5)
+carda, cardb, cardc, cardd, carde = st.columns(5)
+cardf, cardg, cardh, cardi, cardj = st.columns(5)
     
-    st.divider()
+st.divider()
     
-    st.subheader("Linhas",anchor=False)
+st.subheader("Linhas",anchor=False)
     
-    colmap, coldf  = st.columns(2)
+colmap, coldf  = st.columns(2)
 
-    df_carro = df.query('Veículo == "Veículo A"')
+df_carro = df.query('Veículo == "Veículo A"')
 
-    contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-    with carda:
-        ultimo_indice = df_carro.index.max()
+with carda:
+    ultimo_indice = df_carro.index.max()
 
-        if contagem_saidas2 % 2 == 0:
-            st.write(f"🟠 Veículo A")
-            st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-            st.image("img/Busout.png",width=180)
-            st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo A")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
    
-        else:
-            st.write(f"🟢 Veículo A")
-            st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-            st.image("img/Bus.png", width=180)
-            st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    else:
+        st.write(f"🟢 Veículo A")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
             
 # -----------------------------------------------------------------------------------------------------------
 
 # Carro B status 
-        df_carro = df.query('Veículo == "Veículo B"')
+df_carro = df.query('Veículo == "Veículo B"')
 
-        contagem_saidas1 = df_carro.shape[0]
+contagem_saidas1 = df_carro.shape[0]
 
-        with cardb:
-            ultimo_indice = df_carro.index.max()
+with cardb:
+    ultimo_indice = df_carro.index.max()
 
-            if contagem_saidas1 % 2 == 0:
-                st.write(f"🟠 Veículo B")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
-                
+    if contagem_saidas1 % 2 == 0:
+        st.write(f"🟠 Veículo B")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+        
 
-            else:
-                st.write(f"🟢 Veíuclo B")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    else:
+        st.write(f"🟢 Veíuclo B")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
 
 # carro 3 status   
-        df_carro = df.query('Veículo == "Veículo C"')
+df_carro = df.query('Veículo == "Veículo C"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardc:
+with cardc:
 
-            ultimo_indice = df_carro.index.max()
+    ultimo_indice = df_carro.index.max()
 
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo C")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo C")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
-            else:
-                st.write(f"🟢 Veículo C")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    else:
+        st.write(f"🟢 Veículo C")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
 
 # carro D status   
-        df_carro = df.query('Veículo == "Veículo D"')
+df_carro = df.query('Veículo == "Veículo D"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardd:
+with cardd:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo D")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write("🟢 Veículo D")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo D")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write("🟢 Veículo D")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 5 status   
 
-        df_carro = df.query('Veículo == "Veículo E"')
+df_carro = df.query('Veículo == "Veículo E"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with carde:
+with carde:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo E")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write(f"🟢 Veículo E")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
-                
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo E")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write(f"🟢 Veículo E")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+        
 # -----------------------------------------------------------------------------------------------------------
 # carro 6 status   
 
-        df_carro = df.query('Veículo == "Veículo F"')
+df_carro = df.query('Veículo == "Veículo F"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardf:
+with cardf:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo F")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write(f"🟢 Veículo F")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo F")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write(f"🟢 Veículo F")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
                 
 
@@ -279,103 +273,103 @@ with tab1:
 # -----------------------------------------------------------------------------------------------------------
 # carro 7 status   
 
-        df_carro = df.query('Veículo == "Veículo G"')
+df_carro = df.query('Veículo == "Veículo G"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardg:
+with cardg:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo G")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write(f"🟢 Veículo G")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo G")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write(f"🟢 Veículo G")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 8 status   
 
-        df_carro = df.query('Veículo == "Veículo H"')
+df_carro = df.query('Veículo == "Veículo H"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardh:
+with cardh:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo H")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write(f"🟢 Veículo H")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo H")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write(f"🟢 Veículo H")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 9 status   
 
-        df_carro = df.query('Veículo == "Veículo I"')
+df_carro = df.query('Veículo == "Veículo I"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardi:
+with cardi:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo I")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write(f"🟢 Veículo I")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo I")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write(f"🟢 Veículo I")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 8 status   
 
-        df_carro = df.query('Veículo == "Veículo J"')
+df_carro = df.query('Veículo == "Veículo J"')
 
-        contagem_saidas2 = df_carro.shape[0]
+contagem_saidas2 = df_carro.shape[0]
 
-        with cardj:
+with cardj:
 
-            ultimo_indice = df_carro.index.max()
-
-
-            if contagem_saidas2 % 2 == 0:
-                st.write(f"🟠 Veículo J")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Busout.png",width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    ultimo_indice = df_carro.index.max()
 
 
-            else:
-                st.write(f"🟢 Veículo J")
-                st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
-                st.image("img/Bus.png", width=180)
-                st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+    if contagem_saidas2 % 2 == 0:
+        st.write(f"🟠 Veículo J")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Busout.png",width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
+
+
+    else:
+        st.write(f"🟢 Veículo J")
+        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.image("img/Bus.png", width=180)
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
 
 
@@ -384,42 +378,42 @@ with tab1:
 
 
 
-    
-    df["classificar"] = df["Data"] + " " + df["Hora"]
+
+df["classificar"] = df["Data"] + " " + df["Hora"]
 
 
-    df['Km'] = df["Km"].replace(".","").replace(",","")
+df['Km'] = df["Km"].replace(".","").replace(",","")
 
-    lista_carros = df_Veiculos
-        
-    df_rua = df.query('Tipo == "Entrada"')
+lista_carros = df_Veiculos
 
-    df_rua = df.shape[0]
+df_rua = df.query('Tipo == "Entrada"')
 
-    contagem_rua = df_rua % 2
-        
+df_rua = df.shape[0]
+
+contagem_rua = df_rua % 2
+
 
 
 # -----------------------------------------------------------------------------------------------------------
 
 # METRICAS
 
-    with card1:
-        st.metric("QTD Veículos", f'🚌 {qtd_Veiculos}')
+with card1:
+    st.metric("QTD Veículos", f'🚌 {qtd_Veiculos}')
 
-    
-    with card2:
-        
-        st.metric("Estrada", f'🟢 {rua}')
 
-    with card5:
-        st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
-        
-    with card4:
-        st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
+with card2:
 
-    with card3:
-        st.metric("Garagem",f'🟠 {patio}')
+    st.metric("Estrada", f'🟢 {rua}')
+
+with card5:
+    st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
+
+with card4:
+    st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
+
+with card3:
+    st.metric("Garagem",f'🟠 {patio}')
 
 # -------------------------------------------------------------------------------------
 
