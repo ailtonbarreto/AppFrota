@@ -474,8 +474,8 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 # ----------------------------------------------------------------------------------------
 
 # Filtrando os dados para Saídas e Entradas
-saida_df = df[df['Tipo:'] == 'Saída']
-entrada_df = df[df['Tipo:'] == 'Entrada']
+saida_df = df[df['Tipo'] == 'Saída']
+entrada_df = df[df['Tipo'] == 'Entrada']
 
 # Criando a camada de pontos de Saída
 saida_layer = pdk.Layer(
