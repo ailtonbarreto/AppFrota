@@ -389,10 +389,6 @@ with tab1:
 
     df["id"] = df['classificar'].rank()
 
-    df.set_index = df["id"]
-
-    df = df.sort_values(by="id",ascending=True)
-
     df['Km'] = df["Km"].replace(".","").replace(",","")
 
     lista_carros = df_Veiculos
