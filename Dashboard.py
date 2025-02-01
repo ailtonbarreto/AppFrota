@@ -536,7 +536,6 @@ view_state = pdk.ViewState(
 # Tooltip para mostrar informações no mapa
 tooltip = {
     "html": "{Veículo} - {Origem} ➝ {Destino}",
-    "style": {"backgroundColor": "black", "color": "white"}
 }
 
 # Exibindo o mapa no Streamlit
