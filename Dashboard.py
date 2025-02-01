@@ -451,7 +451,7 @@ layer = pdk.Layer(
     "ScatterplotLayer",
     df,
     get_position=["Longitude", "Latitude"],  # Ordem: Lon, Lat
-    get_radius=30000,
+    get_radius=3000,
     get_fill_color=[0, 122, 255, 160],
     opacity=0.8,
     pickable=True
