@@ -448,11 +448,11 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 
 
 layer = pdk.Layer(
-    "ScatterplotLayer",  # Tipo do layer
-    df,  # DataFrame com dados
+    "ScatterplotLayer",
+    df,
     get_position=["Longitude", "Latitude"],  # Ordem: Lon, Lat
-    get_radius=40000,  # Tamanho do ponto (Aumente para ver maior)
-    get_fill_color=[0, 122, 255, 160],  # Azul (RGBA)
+    get_radius=40000,
+    get_fill_color=[0, 122, 255, 160],
     opacity=0.8,
     pickable=True
 )
@@ -472,6 +472,7 @@ tooltip = {
 
 
 with colmap:
+    st.write("Localização")
     st.pydeck_chart(pdk.Deck(layers=[layer],initial_view_state=view_state,tooltip=tooltip))
     st.empty()
     
