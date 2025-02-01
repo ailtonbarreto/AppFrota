@@ -49,7 +49,7 @@ viagens = df
 # ---------------------------------------------------------------------------------------------
 # Dataframe motoristas
 
-df_motoristas = df[" Motorista"].unique()
+df_motoristas = df["Motorista"].unique()
 
 df_Veiculos = df["Veículo"].unique()
 
