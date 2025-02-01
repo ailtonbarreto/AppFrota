@@ -491,7 +491,7 @@ color_map = {
     "Veículo J": "#808080",  # Cinza
 }
 
-df["color"] = df["Veículo:"].map(color_map)
+df["color"] = df["Veículo"].map(color_map)
 
 # Criando a camada de pontos de Saída
 saida_layer = pdk.Layer(
