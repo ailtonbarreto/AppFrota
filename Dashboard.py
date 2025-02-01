@@ -387,7 +387,6 @@ with tab1:
     
     df["classificar"] = df["Data"] + " " + df["Hora"]
 
-    df["id"] = df['classificar'].rank()
 
     df['Km'] = df["Km"].replace(".","").replace(",","")
 
