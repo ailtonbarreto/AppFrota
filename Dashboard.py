@@ -500,7 +500,7 @@ destination_layer = pdk.Layer(
 # Definindo a camada de linha entre origem e destino (se necessário)
 line_layer = pdk.Layer(
     "PathLayer",
-    df[df["Tipo"] == "Origem"],  # Filtrando as origens
+    df[df["Tipo"] == "Saída"],  # Filtrando as origens
     get_path="path",  # Você precisa criar uma coluna 'path' com as coordenadas de origem e destino
     get_width=5,
     get_color=[0, 122, 255, 160],
