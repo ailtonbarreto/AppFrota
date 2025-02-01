@@ -47,7 +47,7 @@ frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyy
 viagens = df
 
 # ---------------------------------------------------------------------------------------------
-# Dataframe motoristas
+# DataframeMotoristas
 
 df_motoristas = df["Motorista"].unique()
 
@@ -131,14 +131,14 @@ with carda:
         st.write(f"🟠 Veículo A")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
    
     else:
         st.write(f"🟢 Veículo A")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
             
@@ -156,14 +156,14 @@ with cardb:
         st.write(f"🟠 Veículo B")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
         
 
     else:
         st.write(f"🟢 Veíuclo B")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
@@ -181,14 +181,14 @@ with cardc:
         st.write(f"🟠 Veículo C")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo C")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
@@ -207,14 +207,14 @@ with cardd:
         st.write(f"🟠 Veículo D")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write("🟢 Veículo D")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
@@ -233,14 +233,14 @@ with carde:
         st.write(f"🟠 Veículo E")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo E")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
         
 # -----------------------------------------------------------------------------------------------------------
 # carro 6 status   
@@ -258,14 +258,14 @@ with cardf:
         st.write(f"🟠 Veículo F")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo F")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
                 
 
@@ -286,14 +286,14 @@ with cardg:
         st.write(f"🟠 Veículo G")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo G")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
 # -----------------------------------------------------------------------------------------------------------
@@ -312,14 +312,14 @@ with cardh:
         st.write(f"🟠 Veículo H")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo H")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 9 status   
@@ -337,14 +337,14 @@ with cardi:
         st.write(f"🟠 Veículo I")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo I")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 # -----------------------------------------------------------------------------------------------------------
 # carro 8 status   
@@ -362,14 +362,14 @@ with cardj:
         st.write(f"🟠 Veículo J")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
     else:
         st.write(f"🟢 Veículo J")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Bus.png", width=180)
-        st.write(f'{df_carro.loc[ultimo_indice, " Motorista"]}')
+        st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
 
 
@@ -407,7 +407,7 @@ with card2:
     st.metric("Estrada", f'🟢 {rua}')
 
 with card5:
-    st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
+    st.metric("QTDMotoristas", f'👨‍✈️ {qtd_motoristas}')
 
 with card4:
     st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
