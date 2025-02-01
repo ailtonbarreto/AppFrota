@@ -469,6 +469,7 @@ with colmap:
     
 with coldf:
     st.write("Frota")
+    df = df["Veículo","Origem","Destino","Motorista"]
     st.dataframe(df,use_container_width=True)
 
 
