@@ -135,9 +135,7 @@ with tab1:
 
         if contagem_saidas2 % 2 == 0:
             st.write(f"🟠 Veículo A")
-            # st.write(df_carro.loc[ultimo_indice, "Origem" "Destino"])
-            st.write(df_carro.loc[ultimo_indice, ["Origem", "Destino"]])
-
+            st.write(f'{df_carro.loc[ultimo_indice, "Origem"]} ➝ {df_carro.loc[ultimo_indice, "Destino"]}')
             st.image("img/Busout.png",width=180)
             st.write(f'{df_carro.loc[ultimo_indice, "Motorista:"]}')
 
