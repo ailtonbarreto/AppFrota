@@ -520,7 +520,7 @@ view_state = pdk.ViewState(
 
 # Tooltip para mostrar informações no mapa
 tooltip = {
-    "html": "{Veículo:} - {Origem} ➝ {Destino}",
+    "html": "{Veículo} - {Origem} ➝ {Destino}",
     "style": {"backgroundColor": "black", "color": "white"}
 }
 
