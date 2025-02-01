@@ -479,18 +479,17 @@ entrada_df = df[df['Tipo'] == 'Entrada']
 
 
 color_map = {
-    "Veículo A": "#FF0000",  # Vermelho
-    "Veículo B": "#00FF00",  # Verde
-    "Veículo C": "#0000FF",  # Azul
-    "Veículo D": "#FFFF00",  # Amarelo
-    "Veículo E": "#FF00FF",  # Magenta
-    "Veículo F": "#00FFFF",  # Ciano
-    "Veículo G": "#FFA500",  # Laranja
-    "Veículo H": "#800080",  # Roxo
-    "Veículo I": "#A52A2A",  # Marrom
-    "Veículo J": "#808080",  # Cinza
+    "Veículo A": [255, 0, 0, 160],  # Vermelho com 63% de opacidade
+    "Veículo B": [0, 255, 0, 160],  # Verde com 63% de opacidade
+    "Veículo C": [0, 0, 255, 160],  # Azul com 63% de opacidade
+    "Veículo D": [255, 255, 0, 160],  # Amarelo com 63% de opacidade
+    "Veículo E": [255, 0, 255, 160],  # Magenta com 63% de opacidade
+    "Veículo F": [0, 255, 255, 160],  # Ciano com 63% de opacidade
+    "Veículo G": [255, 165, 0, 160],  # Laranja com 63% de opacidade
+    "Veículo H": [128, 0, 128, 160],  # Roxo com 63% de opacidade
+    "Veículo I": [165, 42, 42, 160],  # Marrom com 63% de opacidade
+    "Veículo J": [128, 128, 128, 160],  # Cinza com 63% de opacidade
 }
-
 df["color"] = df["Veículo"].map(color_map)
 
 # Criando a camada de pontos de Saída
