@@ -436,96 +436,17 @@ df["LongitudeD"] = df["LongitudeD"].astype(float)
 # -------------------------------------------------------------------------------------
 
 
-# layer = pdk.Layer(
-#     "ScatterplotLayer",
-#     df,
-#     get_position=["Longitude", "Latitude"],  # Ordem: Lon, Lat
-#     get_radius=20000,
-#     get_fill_color=[0, 122, 255, 160],
-#     opacity=0.8,
-#     pickable=True
-# )
-
-
-# view_state = pdk.ViewState(
-#     latitude=df["Latitude"].mean(),
-#     longitude=df["Longitude"].mean(),
-#     zoom=4,
-#     pitch=0
-# )
-
-# tooltip = {
-#     "html": "{Veículo} - {Origem}",
-#     "style": {"backgroundColor": "black", "color": "white"}
-# }
-
-
-# with colmap:
-#     st.write("Localização")
-#     st.pydeck_chart(pdk.Deck(layers=[layer],initial_view_state=view_state,tooltip=tooltip))
-#     st.empty()
-    
-    
-    
-# with coldf:
-#     st.write("Frota")
-#     st.dataframe(df,use_container_width=True)
-
-# ----------------------------------------------------------------------------------------
-
-# Filtrando os dados para Saídas e Entradas
-saida_df = df[df['Tipo'] == 'Saída']
-entrada_df = df[df['Tipo'] == 'Entrada']
-
-
-color_map = {
-    "Veículo A": [255, 0, 0, 160],  # Vermelho com 63% de opacidade
-    "Veículo B": [0, 255, 0, 160],  # Verde com 63% de opacidade
-    "Veículo C": [0, 0, 255, 160],  # Azul com 63% de opacidade
-    "Veículo D": [255, 255, 0, 160],  # Amarelo com 63% de opacidade
-    "Veículo E": [255, 0, 255, 160],  # Magenta com 63% de opacidade
-    "Veículo F": [0, 255, 255, 160],  # Ciano com 63% de opacidade
-    "Veículo G": [255, 165, 0, 160],  # Laranja com 63% de opacidade
-    "Veículo H": [128, 0, 128, 160],  # Roxo com 63% de opacidade
-    "Veículo I": [165, 42, 42, 160],  # Marrom com 63% de opacidade
-    "Veículo J": [128, 128, 128, 160],  # Cinza com 63% de opacidade
-}
-df["color"] = df["Veículo"].map(color_map)
-
-# Criando a camada de pontos de Saída
-saida_layer = pdk.Layer(
+layer = pdk.Layer(
     "ScatterplotLayer",
-    saida_df,
-    get_position=["Longitude", "Latitude"],
+    df,
+    get_position=["Longitude", "Latitude"],  # Ordem: Lon, Lat
     get_radius=20000,
-    get_fill_color= df["color"],  # Cor vermelha para saída
+    get_fill_color=[0, 122, 255, 160],
     opacity=0.8,
     pickable=True
 )
 
-# Criando a camada de pontos de Entrada
-entrada_layer = pdk.Layer(
-    "ScatterplotLayer",
-    entrada_df,
-    get_position=["LongitudeD", "LatitudeD"],
-    get_radius=20000,
-    get_fill_color= "color",  # Cor verde para entrada
-    opacity=0.8,
-    pickable=True
-)
 
-# Adicionando linha de origem -> destino (Se necessário)
-path_layer = pdk.Layer(
-    "PathLayer",
-    pd.concat([saida_df, entrada_df]),  # Combina as saídas e entradas para as linhas
-    get_path="path",  # Aqui você precisa adicionar a lógica para gerar a linha de origem a destino
-    get_width=5,
-    get_color=[0, 122, 255, 160],
-    opacity=0.8,
-    pickable=True
-)
-
-# Estado da visão do mapa
 view_state = pdk.ViewState(
     latitude=df["Latitude"].mean(),
     longitude=df["Longitude"].mean(),
@@ -533,20 +454,24 @@ view_state = pdk.ViewState(
     pitch=0
 )
 
-# Tooltip para mostrar informações no mapa
 tooltip = {
-    "html": "{Veículo} - {Origem} ➝ {Destino}",
+    "html": "{Veículo} - {Origem}",
+    "style": {"backgroundColor": "black", "color": "white"}
 }
 
-# Exibindo o mapa no Streamlit
-with st.container():
+
+with colmap:
     st.write("Localização")
-    st.pydeck_chart(pdk.Deck(
-        layers=[saida_layer, entrada_layer, path_layer],  # Incluindo as camadas
-        initial_view_state=view_state,
-        tooltip=tooltip
-    ))
-df
+    st.pydeck_chart(pdk.Deck(layers=[layer],initial_view_state=view_state,tooltip=tooltip))
+    st.empty()
+    
+    
+    
+with coldf:
+    st.write("Frota")
+    st.dataframe(df,use_container_width=True)
+
+
 # ----------------------------------------------------------------------------------
 #atualizar dados
 
