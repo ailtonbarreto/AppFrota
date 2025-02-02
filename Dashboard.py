@@ -128,7 +128,7 @@ with carda:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo A")
-        st.write("Teste")
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -153,7 +153,7 @@ with cardb:
 
     if contagem_saidas1 % 2 == 0:
         st.write(f"🟡 Veículo B")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
         
@@ -178,7 +178,7 @@ with cardc:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo C")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -204,7 +204,7 @@ with cardd:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo D")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -230,7 +230,7 @@ with carde:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo E")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -255,7 +255,7 @@ with cardf:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo F")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -283,7 +283,7 @@ with cardg:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo G")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -309,7 +309,7 @@ with cardh:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo H")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -334,7 +334,7 @@ with cardi:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo I")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
@@ -359,7 +359,7 @@ with cardj:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo J")
-        st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
+        st.write("Garagem")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
