@@ -128,6 +128,7 @@ with carda:
 
     if contagem_saidas2 % 2 == 0:
         st.write(f"🟡 Veículo A")
+        st.write("")
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
 
