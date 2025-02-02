@@ -3,6 +3,7 @@ import pandas as pd
 import pydeck as pdk
 
 
+
 # ---------------------------------------------------------------------------------------------
 # layout
 
@@ -37,8 +38,6 @@ df["Mês"] = df["Data"].dt.month
 df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
 df = df.rename(columns={"Tipo:": "Tipo"})
 df = df.rename(columns={"Veículo:": "Veículo"})
-
-frame = 'https://docs.google.com/forms/d/e/1FAIpQLSeSWA0R9Bwf9t1RPnrYYHZG5dUrNyyDxbdLpevKT3lP0-5afw/viewform?embedded=true'
 
 
 # ---------------------------------------------------------------------------------------------
@@ -128,7 +127,7 @@ with carda:
     ultimo_indice = df_carro.index.max()
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo A")
+        st.write(f"🟡 Veículo A")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -153,7 +152,7 @@ with cardb:
     ultimo_indice = df_carro.index.max()
 
     if contagem_saidas1 % 2 == 0:
-        st.write(f"🟠 Veículo B")
+        st.write(f"🟡 Veículo B")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -178,7 +177,7 @@ with cardc:
     ultimo_indice = df_carro.index.max()
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo C")
+        st.write(f"🟡 Veículo C")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -204,7 +203,7 @@ with cardd:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo D")
+        st.write(f"🟡 Veículo D")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -230,7 +229,7 @@ with carde:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo E")
+        st.write(f"🟡 Veículo E")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -255,7 +254,7 @@ with cardf:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo F")
+        st.write(f"🟡 Veículo F")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -283,7 +282,7 @@ with cardg:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo G")
+        st.write(f"🟡 Veículo G")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -309,7 +308,7 @@ with cardh:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo H")
+        st.write(f"🟡 Veículo H")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -334,7 +333,7 @@ with cardi:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo I")
+        st.write(f"🟡 Veículo I")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -359,7 +358,7 @@ with cardj:
 
 
     if contagem_saidas2 % 2 == 0:
-        st.write(f"🟠 Veículo J")
+        st.write(f"🟡 Veículo J")
         st.write(f'{df_carro.loc[ultimo_indice, "Origem"]}  -  {df_carro.loc[ultimo_indice, "Destino"]}')
         st.image("img/Busout.png",width=180)
         st.write(f'{df_carro.loc[ultimo_indice, "Motorista"]}')
@@ -413,7 +412,7 @@ with card4:
     st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
 
 with card3:
-    st.metric("Garagem",f'🟠 {patio}')
+    st.metric("Garagem",f'🟡 {patio}')
 
 # -------------------------------------------------------------------------------------
 
@@ -461,7 +460,7 @@ tooltip = {
 
 
 with colmap:
-    st.write("Localização")
+    st.write("Última Posição Conhecida")
     st.pydeck_chart(pdk.Deck(layers=[layer],initial_view_state=view_state,tooltip=tooltip))
     st.empty()
     
