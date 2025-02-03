@@ -27,14 +27,15 @@ def load_viagens():
 
 df = load_viagens()
 
+df[["Data", "Hora"]] = df["Data"].str.split(" ", expand=True)
 
 df["Data"] = pd.to_datetime(df["Data"])
 
-df = df.drop(columns="Carimbo de data/hora")
 
 df["Ano"] = df["Data"].dt.year
 df["Mês"] = df["Data"].dt.month
 df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
+
 
 
 # ---------------------------------------------------------------------------------------------
