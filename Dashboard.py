@@ -389,8 +389,6 @@ with cardj:
 df["classificar"] = df["Data"]
 
 
-df['Km'] = df["Km"].replace(".","").replace(",","")
-
 lista_carros = df_Veiculos
 
 df_rua = df.query('Tipo == "Entrada"')
