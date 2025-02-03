@@ -17,16 +17,25 @@ with open("style.css") as f:
 st.image('img/header.png',width=1000)
 
 
-# ---------------------------------------------------------------------------------------------
-# Dataframe principal
+
+conn = mysql.connector.connect(
+    host="srv1073.hstgr.io",        # ou o IP do servidor
+    user="u771906953_barreto",      # seu nome de usuário no banco de dados
+    password="MQPj3:6GY_hFfjA",    # sua senha do banco de dados
+    database="u771906953_barreto"     # nome do banco de dados
+)
+
+# Consulta SQL
+query = "SELECT * FROM TB_VIAGENS"
+
 @st.cache_data
-def load_viagens():
-    url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLYIhif_-IpAqFzG2uZKZ2Rifj0xmdek42-wuj2mNuGWYENnZLY1gRSzh9NnUYh0f1_9xpBoMttk5a/pub?gid=2121011744&single=true&output=csv'
-    df = pd.read_csv(url)
+def load_data():
+    df = pd.read_sql(query, conn)
     return df
 
 
-df = load_viagens()
+
+df = load_data()
 
 
 
