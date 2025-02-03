@@ -422,8 +422,7 @@ with card3:
 
 # -------------------------------------------------------------------------------------
 
-df["Latitude"] = df["Latitude"].str.replace(",", ".", regex=False)
-df["Longitude"] = df["Longitude"].str.replace(",", ".", regex=False)
+
 
 
 df["Latitude"] = df["Latitude"].astype(float)
