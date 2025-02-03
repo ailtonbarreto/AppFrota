@@ -27,7 +27,7 @@ def load_viagens():
 
 df = load_viagens()
 
-# df[["Data", "Hora"]] = df["Data"].str.split(" ", expand=True)
+# df[["Data", "Hora"]] = df["Carimbo de data/hora"].str.split(" ", expand=True)
 
 df["Data"] = pd.to_datetime(df["Data"])
 
