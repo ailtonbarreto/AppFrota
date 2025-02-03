@@ -27,7 +27,7 @@ def load_viagens():
 
 df = load_viagens()
 
-# df[["Data", "Hora"]] = df["Carimbo de data/hora"].str.split(" ", expand=True)
+
 
 df["Data"] = pd.to_datetime(df["Data"])
 
@@ -376,7 +376,7 @@ with cardj:
 
 
 
-df["classificar"] = df["Data"] + " " + df["Hora"]
+df["classificar"] = df["Data"]
 
 
 df['Km'] = df["Km"].replace(".","").replace(",","")
