@@ -461,7 +461,7 @@ with colmap:
 with coldf:
     st.write("Frota")
     df = df[["Veículo","Origem","Destino"]]
-    st.dataframe(df,use_container_width=True,hide_index=True)
+    st.dataframe(df,use_container_width=True,hide_index=False)
 
 
 # ----------------------------------------------------------------------------------
