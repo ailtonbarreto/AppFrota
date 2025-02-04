@@ -33,14 +33,10 @@ def load_data():
     df = pd.read_sql(query, conn)
     return df
 
-
-
 df = load_data()
 
 
-
 df["Data"] = pd.to_datetime(df["Data"])
-
 
 df["Ano"] = df["Data"].dt.year
 df["Mês"] = df["Data"].dt.month
@@ -70,7 +66,6 @@ df_tipo = df_tipo.groupby("Veículo")["count"].sum().reset_index()
 df_tipo["disp"] = df_tipo["count"].apply(lambda x: x % 2)
 
 rua = (df_tipo['disp'] == 1).sum()
-
 
 
 df["Latitude"] = df["Latitude"].astype(float)
