@@ -384,6 +384,8 @@ df_rua = df.shape[0]
 
 contagem_rua = df_rua % 2
 
+soma_km = df["km"].sum()
+
 
 
 # -----------------------------------------------------------------------------------------------------------
@@ -399,7 +401,7 @@ with card2:
     st.metric("Estrada", f'🟢 {rua}')
 
 with card5:
-    st.metric("QTD Motoristas", f'👨‍✈️ {qtd_motoristas}')
+    st.metric("QTD Motoristas", f'👨‍✈️ {soma_km}')
 
 with card4:
     st.metric("QTD Viagens", f'🏁 {df_qtd_viagens}')
