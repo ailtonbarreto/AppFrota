@@ -111,7 +111,9 @@ st.divider()
     
 st.subheader("Linhas",anchor=False)
     
-colmap, coldf  = st.columns([2,1])
+col_df, = st.columns(1)
+
+colmap, = st.columns(1)
 
 df_carro = df.query('Veículo == "Veículo A"')
 
@@ -440,7 +442,7 @@ with colmap:
     
     
     
-with coldf:
+with col_df:
     st.write("Frota")
     df = df[["Veículo","Origem","Destino"]]
     st.dataframe(df,use_container_width=True,hide_index=False)
