@@ -110,10 +110,12 @@ cardf, cardg, cardh, cardi, cardj = st.columns(5)
 st.divider()
     
 st.subheader("Linhas",anchor=False)
-    
-col_df, = st.columns(1)
 
 colmap, = st.columns(1)
+
+col_df, = st.columns(1)
+
+
 
 df_carro = df.query('Veículo == "Veículo A"')
 
