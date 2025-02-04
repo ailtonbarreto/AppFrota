@@ -393,7 +393,7 @@ soma_km = df["km"].sum()
 # METRICAS
 
 with card1:
-    st.metric("QTD Veículos", f'🚌 {qtd_Veiculos}')
+    st.metric("QTD Veículos", f'🚌 {qtd_Veiculos}2:,.')
 
 
 with card2:
