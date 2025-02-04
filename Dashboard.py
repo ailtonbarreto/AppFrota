@@ -79,6 +79,9 @@ df_status = df_status.drop(columns=["count","disp"])
 
 max_date = df['Data'].max()
 
+df["Latitude"] = df["Latitude"].astype(float)
+df["Longitude"] = df["Longitude"].astype(float)
+
 
 # ---------------------------------------------------------------------------------------------
 # cards
@@ -422,8 +425,7 @@ with card3:
 
 # -------------------------------------------------------------------------------------
 
-df["Latitude"] = df["Latitude"].astype(float)
-df["Longitude"] = df["Longitude"].astype(float)
+
 
 # -------------------------------------------------------------------------------------
 
