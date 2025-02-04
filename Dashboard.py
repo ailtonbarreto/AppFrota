@@ -401,7 +401,7 @@ with card2:
     st.metric("Estrada", f'🟢 {rua}')
 
 with card5:
-    st.metric("QTD Motoristas", f'👨‍✈️ {soma_km:,.2f}'.replace(",", "."))
+    st.metric("QTD Motoristas", f'👨‍✈️ {soma_km:,.2f}')
 
 
 with card4:
