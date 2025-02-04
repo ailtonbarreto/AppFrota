@@ -125,7 +125,7 @@ st.divider()
     
 st.subheader("Linhas",anchor=False)
     
-colmap, coldf  = st.columns(2)
+colmap, coldf  = st.columns([2,1])
 
 df_carro = df.query('Veículo == "Veículo A"')
 
