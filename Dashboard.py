@@ -401,7 +401,7 @@ with card2:
     st.metric("Estrada", f'🟢 {rua}')
 
 with card5:
-    st.metric("Km Rodados", f'👨🧭 {soma_km:,.2f}'.replace(",", "X").replace(".", ",").replace("X", "."))
+    st.metric("Km Rodados", f'🧭 {soma_km:,.2f}'.replace(",", "X").replace(".", ",").replace("X", "."))
 
 
 
