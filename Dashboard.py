@@ -77,7 +77,7 @@ df_status["status"] = df_status["disp"].replace(1,"Rua").replace(0,"Pátio")
 
 df_status = df_status.drop(columns=["count","disp"])
 
-max_date = df['Data'].max()
+# max_date = df['Data'].max()
 
 df["Latitude"] = df["Latitude"].astype(float)
 df["Longitude"] = df["Longitude"].astype(float)
