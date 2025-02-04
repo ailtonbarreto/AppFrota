@@ -422,17 +422,10 @@ with card3:
 
 # -------------------------------------------------------------------------------------
 
-
-
-
 df["Latitude"] = df["Latitude"].astype(float)
 df["Longitude"] = df["Longitude"].astype(float)
 
 # -------------------------------------------------------------------------------------
-
-
-# -------------------------------------------------------------------------------------
-
 
 layer = pdk.Layer(
     "ScatterplotLayer",
@@ -467,7 +460,7 @@ with colmap:
     
 with coldf:
     st.write("Frota")
-    df = df[["Veículo","Tipo","Origem","Destino","Motorista"]]
+    df = df[["Veículo","Origem","Destino","Motorista"]]
     st.dataframe(df,use_container_width=True,hide_index=True)
 
 
