@@ -71,11 +71,6 @@ df_tipo["disp"] = df_tipo["count"].apply(lambda x: x % 2)
 
 rua = (df_tipo['disp'] == 1).sum()
 
-df_status = df_tipo
-
-df_status["status"] = df_status["disp"].replace(1,"Rua").replace(0,"Pátio")
-
-df_status = df_status.drop(columns=["count","disp"])
 
 
 df["Latitude"] = df["Latitude"].astype(float)
