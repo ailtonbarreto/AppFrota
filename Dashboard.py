@@ -450,7 +450,7 @@ with colmap:
     
     
 with col_df:
-    st.write("Frota")
+    st.write("Linhas")
     df = df[["Veículo","Origem","Destino"]]
     st.dataframe(df,use_container_width=True,hide_index=True)
 
