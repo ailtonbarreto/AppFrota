@@ -109,8 +109,6 @@ cardf, cardg, cardh, cardi, cardj = st.columns(5)
     
 st.divider()
     
-st.subheader("Linhas",anchor=False)
-
 colmap, = st.columns(1)
 
 col_df, = st.columns(1)
