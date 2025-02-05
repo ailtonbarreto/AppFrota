@@ -413,7 +413,7 @@ with card3:
     st.metric("Garagem",f'🟡 {patio}')
 
 # -------------------------------------------------------------------------------------
-df_unico = df.set_index("index")
+df = df.set_index("index")
 df_unico = df.loc[df.reset_index().drop_duplicates(subset='Veiculo', keep='last').set_index("index").index]
 
 # -------------------------------------------------------------------------------------
