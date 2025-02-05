@@ -43,6 +43,10 @@ df["Mês"] = df["Data"].dt.month
 df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
 
 
+
+df = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set_index("index").index]
+
+
 # ---------------------------------------------------------------------------------------------
 # DataframeMotoristas
 
@@ -112,7 +116,6 @@ st.divider()
 colmap, = st.columns(1)
 
 col_df, = st.columns(1)
-
 
 
 df_carro = df.query('Veículo == "Veículo A"')
@@ -410,9 +413,6 @@ with card4:
 with card3:
     st.metric("Garagem",f'🟡 {patio}')
 
-# -------------------------------------------------------------------------------------
-
-df = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set_index("index").index]
 
 # -------------------------------------------------------------------------------------
 
