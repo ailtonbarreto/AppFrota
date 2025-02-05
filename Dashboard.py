@@ -414,9 +414,7 @@ with card3:
 
 # -------------------------------------------------------------------------------------
 
-df_unico = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set_index("index").index]
-
-df_unico
+df = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set_index("index").index]
 
 # -------------------------------------------------------------------------------------
 
