@@ -44,7 +44,7 @@ df['Data'] = df['Data'].dt.strftime('%d/%m/%Y')
 
 
 
-df = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set_index("index").index]
+
 
 
 # ---------------------------------------------------------------------------------------------
@@ -387,7 +387,7 @@ contagem_rua = df_rua % 2
 
 soma_km = df["km"].sum()
 
-
+df = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set_index("index").index]
 
 # -----------------------------------------------------------------------------------------------------------
 
