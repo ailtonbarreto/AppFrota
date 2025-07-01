@@ -464,18 +464,6 @@ if st.button("🔄 Atualizar"):
 #estilizacao
 
 
-# top = """
-#             <style>
-#             [Data-testid="stApp"]
-#             {
-#             top: -4vw;
-
-#             }
-#             </style>
-#             """
-
-# st.markdown(top, unsafe_allow_html=True)  
-
 
 # ----------------------------------------------------------------------------------
 
