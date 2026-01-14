@@ -16,7 +16,7 @@ with open("style.css") as f:
 
 # st.image('img/header.png',width=1000)
 
-st.title("🚚 Gestão de Frota")
+st.title("🚚 Gestão de Frota", anchor=False)
 
 
 
