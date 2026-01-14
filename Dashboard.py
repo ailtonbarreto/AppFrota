@@ -14,15 +14,17 @@ st.set_page_config(page_title="Gestão de Frota",layout="wide",initial_sidebar_s
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html = True)
 
-st.image('img/header.png',width=1000)
+# st.image('img/header.png',width=1000)
+
+st.title("🚚 Gestão de Frota")
 
 
 
 conn = mysql.connector.connect(
-    host="srv1073.hstgr.io",        # ou o IP do servidor
-    user="u771906953_barreto",      # seu nome de usuário no banco de dados
-    password="MQPj3:6GY_hFfjA",    # sua senha do banco de dados
-    database="u771906953_barreto"     # nome do banco de dados
+    host="srv1073.hstgr.io",       
+    user="u771906953_barreto",      
+    password="MQPj3:6GY_hFfjA",
+    database="u771906953_barreto" 
 )
 
 # Consulta SQL
