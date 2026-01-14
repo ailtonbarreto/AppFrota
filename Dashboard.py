@@ -396,7 +396,7 @@ df = df.loc[df.reset_index().drop_duplicates(subset='Veículo', keep='last').set
 # METRICAS
 
 with card1:
-    st.metric("QTD Veículos", f'🚌 {qtd_Veiculos}')
+    st.metric("QTD Veículos", f'🚚 {qtd_Veiculos}')
 
 
 with card2:
